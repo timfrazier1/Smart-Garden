@@ -1,0 +1,369 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4610ED564A1985CD14A3D6A4 /* Pods_Smart_Garden.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF2F8B3CB2D59FF5A03BFFB /* Pods_Smart_Garden.framework */; };
+		668B95511BFFF8860038DF98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668B95501BFFF8860038DF98 /* AppDelegate.swift */; };
+		668B95531BFFF8860038DF98 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668B95521BFFF8860038DF98 /* ViewController.swift */; };
+		668B95561BFFF8860038DF98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 668B95541BFFF8860038DF98 /* Main.storyboard */; };
+		668B95581BFFF8860038DF98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 668B95571BFFF8860038DF98 /* Assets.xcassets */; };
+		668B955B1BFFF8860038DF98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 668B95591BFFF8860038DF98 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1E0760B336485B92A7F93F67 /* Pods-Smart Garden.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Garden.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Garden/Pods-Smart Garden.release.xcconfig"; sourceTree = "<group>"; };
+		668B954D1BFFF8860038DF98 /* Smart Garden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Garden.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		668B95501BFFF8860038DF98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		668B95521BFFF8860038DF98 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		668B95551BFFF8860038DF98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		668B95571BFFF8860038DF98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		668B955A1BFFF8860038DF98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		668B955C1BFFF8860038DF98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD2D1438050E75CCAF99299F /* Pods-Smart Garden.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Garden.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Garden/Pods-Smart Garden.debug.xcconfig"; sourceTree = "<group>"; };
+		CEF2F8B3CB2D59FF5A03BFFB /* Pods_Smart_Garden.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Garden.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		668B954A1BFFF8860038DF98 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4610ED564A1985CD14A3D6A4 /* Pods_Smart_Garden.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		668B95441BFFF8860038DF98 = {
+			isa = PBXGroup;
+			children = (
+				668B954F1BFFF8860038DF98 /* Smart Garden */,
+				668B954E1BFFF8860038DF98 /* Products */,
+				B9B5B33FFBDA3A0329628FC3 /* Pods */,
+				7E8EE221D268445E307FF6CC /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		668B954E1BFFF8860038DF98 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				668B954D1BFFF8860038DF98 /* Smart Garden.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		668B954F1BFFF8860038DF98 /* Smart Garden */ = {
+			isa = PBXGroup;
+			children = (
+				668B95501BFFF8860038DF98 /* AppDelegate.swift */,
+				668B95521BFFF8860038DF98 /* ViewController.swift */,
+				668B95541BFFF8860038DF98 /* Main.storyboard */,
+				668B95571BFFF8860038DF98 /* Assets.xcassets */,
+				668B95591BFFF8860038DF98 /* LaunchScreen.storyboard */,
+				668B955C1BFFF8860038DF98 /* Info.plist */,
+			);
+			path = "Smart Garden";
+			sourceTree = "<group>";
+		};
+		7E8EE221D268445E307FF6CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CEF2F8B3CB2D59FF5A03BFFB /* Pods_Smart_Garden.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B9B5B33FFBDA3A0329628FC3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CD2D1438050E75CCAF99299F /* Pods-Smart Garden.debug.xcconfig */,
+				1E0760B336485B92A7F93F67 /* Pods-Smart Garden.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		668B954C1BFFF8860038DF98 /* Smart Garden */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 668B955F1BFFF8860038DF98 /* Build configuration list for PBXNativeTarget "Smart Garden" */;
+			buildPhases = (
+				05628758EF0EEED470864BBD /* Check Pods Manifest.lock */,
+				668B95491BFFF8860038DF98 /* Sources */,
+				668B954A1BFFF8860038DF98 /* Frameworks */,
+				668B954B1BFFF8860038DF98 /* Resources */,
+				55C4E1C64DF0C174BF3F9563 /* Embed Pods Frameworks */,
+				0479EDC24DBDEB48353651EE /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Smart Garden";
+			productName = "Smart Garden";
+			productReference = 668B954D1BFFF8860038DF98 /* Smart Garden.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		668B95451BFFF8860038DF98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = FrazierApps;
+				TargetAttributes = {
+					668B954C1BFFF8860038DF98 = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 668B95481BFFF8860038DF98 /* Build configuration list for PBXProject "Smart Garden" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 668B95441BFFF8860038DF98;
+			productRefGroup = 668B954E1BFFF8860038DF98 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				668B954C1BFFF8860038DF98 /* Smart Garden */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		668B954B1BFFF8860038DF98 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				668B955B1BFFF8860038DF98 /* LaunchScreen.storyboard in Resources */,
+				668B95581BFFF8860038DF98 /* Assets.xcassets in Resources */,
+				668B95561BFFF8860038DF98 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0479EDC24DBDEB48353651EE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Smart Garden/Pods-Smart Garden-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		05628758EF0EEED470864BBD /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		55C4E1C64DF0C174BF3F9563 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Smart Garden/Pods-Smart Garden-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		668B95491BFFF8860038DF98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				668B95531BFFF8860038DF98 /* ViewController.swift in Sources */,
+				668B95511BFFF8860038DF98 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		668B95541BFFF8860038DF98 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				668B95551BFFF8860038DF98 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		668B95591BFFF8860038DF98 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				668B955A1BFFF8860038DF98 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		668B955D1BFFF8860038DF98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		668B955E1BFFF8860038DF98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		668B95601BFFF8860038DF98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD2D1438050E75CCAF99299F /* Pods-Smart Garden.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Smart Garden/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.FrazierApps.Smart-Garden";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		668B95611BFFF8860038DF98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E0760B336485B92A7F93F67 /* Pods-Smart Garden.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Smart Garden/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.FrazierApps.Smart-Garden";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		668B95481BFFF8860038DF98 /* Build configuration list for PBXProject "Smart Garden" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				668B955D1BFFF8860038DF98 /* Debug */,
+				668B955E1BFFF8860038DF98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		668B955F1BFFF8860038DF98 /* Build configuration list for PBXNativeTarget "Smart Garden" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				668B95601BFFF8860038DF98 /* Debug */,
+				668B95611BFFF8860038DF98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 668B95451BFFF8860038DF98 /* Project object */;
+}
