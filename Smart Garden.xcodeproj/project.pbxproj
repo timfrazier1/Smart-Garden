@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		4610ED564A1985CD14A3D6A4 /* Pods_Smart_Garden.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF2F8B3CB2D59FF5A03BFFB /* Pods_Smart_Garden.framework */; };
 		668B95511BFFF8860038DF98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668B95501BFFF8860038DF98 /* AppDelegate.swift */; };
-		668B95531BFFF8860038DF98 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668B95521BFFF8860038DF98 /* ViewController.swift */; };
 		668B95561BFFF8860038DF98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 668B95541BFFF8860038DF98 /* Main.storyboard */; };
 		668B95581BFFF8860038DF98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 668B95571BFFF8860038DF98 /* Assets.xcassets */; };
 		668B955B1BFFF8860038DF98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 668B95591BFFF8860038DF98 /* LaunchScreen.storyboard */; };
+		668B95691BFFFC570038DF98 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668B95681BFFFC570038DF98 /* ErrorHandling.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1E0760B336485B92A7F93F67 /* Pods-Smart Garden.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Garden.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Garden/Pods-Smart Garden.release.xcconfig"; sourceTree = "<group>"; };
 		668B954D1BFFF8860038DF98 /* Smart Garden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Garden.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		668B95501BFFF8860038DF98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		668B95521BFFF8860038DF98 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		668B95551BFFF8860038DF98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		668B95571BFFF8860038DF98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		668B955A1BFFF8860038DF98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		668B955C1BFFF8860038DF98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		668B95681BFFFC570038DF98 /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorHandling.swift; path = Helpers/ErrorHandling.swift; sourceTree = "<group>"; };
 		CD2D1438050E75CCAF99299F /* Pods-Smart Garden.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Garden.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Garden/Pods-Smart Garden.debug.xcconfig"; sourceTree = "<group>"; };
 		CEF2F8B3CB2D59FF5A03BFFB /* Pods_Smart_Garden.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Garden.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -61,14 +61,30 @@
 		668B954F1BFFF8860038DF98 /* Smart Garden */ = {
 			isa = PBXGroup;
 			children = (
+				668B95631BFFFBC00038DF98 /* View Controllers */,
+				668B95621BFFFBB90038DF98 /* Helpers */,
 				668B95501BFFF8860038DF98 /* AppDelegate.swift */,
-				668B95521BFFF8860038DF98 /* ViewController.swift */,
 				668B95541BFFF8860038DF98 /* Main.storyboard */,
 				668B95571BFFF8860038DF98 /* Assets.xcassets */,
 				668B95591BFFF8860038DF98 /* LaunchScreen.storyboard */,
 				668B955C1BFFF8860038DF98 /* Info.plist */,
 			);
 			path = "Smart Garden";
+			sourceTree = "<group>";
+		};
+		668B95621BFFFBB90038DF98 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				668B95681BFFFC570038DF98 /* ErrorHandling.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		668B95631BFFFBC00038DF98 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		7E8EE221D268445E307FF6CC /* Frameworks */ = {
@@ -210,7 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				668B95531BFFF8860038DF98 /* ViewController.swift in Sources */,
+				668B95691BFFFC570038DF98 /* ErrorHandling.swift in Sources */,
 				668B95511BFFF8860038DF98 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

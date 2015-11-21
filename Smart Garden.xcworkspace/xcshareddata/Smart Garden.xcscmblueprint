@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "943E1047C9360AC8BE3925C4605C849BB3558CEE",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "943E1047C9360AC8BE3925C4605C849BB3558CEE" : 0,
+    "2817873945CB5A301B81C1B87489D55A4A8AD210" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "DB44C9B2-A4FE-40B5-BFDA-B757D219C8A5",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "943E1047C9360AC8BE3925C4605C849BB3558CEE" : "Smart%20Garden\/",
+    "2817873945CB5A301B81C1B87489D55A4A8AD210" : "Smart%20Garden\/Smart%20Garden\/Makestagram-Swift2-xcode7_starter_project\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Smart Garden",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Smart Garden.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/timfrazier1\/Makestagram.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2817873945CB5A301B81C1B87489D55A4A8AD210"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/timfrazier1\/Smart-Garden.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "943E1047C9360AC8BE3925C4605C849BB3558CEE"
+    }
+  ]
+}
