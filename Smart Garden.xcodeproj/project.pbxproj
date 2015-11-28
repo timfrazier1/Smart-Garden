@@ -13,6 +13,14 @@
 		668B95581BFFF8860038DF98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 668B95571BFFF8860038DF98 /* Assets.xcassets */; };
 		668B955B1BFFF8860038DF98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 668B95591BFFF8860038DF98 /* LaunchScreen.storyboard */; };
 		668B95691BFFFC570038DF98 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668B95681BFFFC570038DF98 /* ErrorHandling.swift */; };
+		668B956B1C0004760038DF98 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668B956A1C0004760038DF98 /* DashboardViewController.swift */; };
+		668B956D1C00048A0038DF98 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668B956C1C00048A0038DF98 /* EventsViewController.swift */; };
+		668B956F1C00049A0038DF98 /* AlarmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668B956E1C00049A0038DF98 /* AlarmsViewController.swift */; };
+		668B95711C0004AB0038DF98 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668B95701C0004AB0038DF98 /* SettingsViewController.swift */; };
+		668B95741C0005870038DF98 /* Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668B95731C0005870038DF98 /* Reading.swift */; };
+		668B95761C0007BB0038DF98 /* Garden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668B95751C0007BB0038DF98 /* Garden.swift */; };
+		668B95971C00D5D90038DF98 /* ReadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668B95961C00D5D90038DF98 /* ReadingTableViewCell.swift */; };
+		668B95991C064FDC0038DF98 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668B95981C064FDC0038DF98 /* ParseHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +32,14 @@
 		668B955A1BFFF8860038DF98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		668B955C1BFFF8860038DF98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		668B95681BFFFC570038DF98 /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorHandling.swift; path = Helpers/ErrorHandling.swift; sourceTree = "<group>"; };
+		668B956A1C0004760038DF98 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardViewController.swift; path = "View Controllers/DashboardViewController.swift"; sourceTree = "<group>"; };
+		668B956C1C00048A0038DF98 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsViewController.swift; path = "View Controllers/EventsViewController.swift"; sourceTree = "<group>"; };
+		668B956E1C00049A0038DF98 /* AlarmsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlarmsViewController.swift; path = "View Controllers/AlarmsViewController.swift"; sourceTree = "<group>"; };
+		668B95701C0004AB0038DF98 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = "View Controllers/SettingsViewController.swift"; sourceTree = "<group>"; };
+		668B95731C0005870038DF98 /* Reading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reading.swift; sourceTree = "<group>"; };
+		668B95751C0007BB0038DF98 /* Garden.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Garden.swift; sourceTree = "<group>"; };
+		668B95961C00D5D90038DF98 /* ReadingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingTableViewCell.swift; sourceTree = "<group>"; };
+		668B95981C064FDC0038DF98 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		CD2D1438050E75CCAF99299F /* Pods-Smart Garden.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Garden.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Garden/Pods-Smart Garden.debug.xcconfig"; sourceTree = "<group>"; };
 		CEF2F8B3CB2D59FF5A03BFFB /* Pods_Smart_Garden.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Garden.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -61,6 +77,8 @@
 		668B954F1BFFF8860038DF98 /* Smart Garden */ = {
 			isa = PBXGroup;
 			children = (
+				668B95951C00D5BC0038DF98 /* Views */,
+				668B95721C0005620038DF98 /* Models */,
 				668B95631BFFFBC00038DF98 /* View Controllers */,
 				668B95621BFFFBB90038DF98 /* Helpers */,
 				668B95501BFFF8860038DF98 /* AppDelegate.swift */,
@@ -76,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				668B95681BFFFC570038DF98 /* ErrorHandling.swift */,
+				668B95981C064FDC0038DF98 /* ParseHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -83,8 +102,29 @@
 		668B95631BFFFBC00038DF98 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				668B956A1C0004760038DF98 /* DashboardViewController.swift */,
+				668B956C1C00048A0038DF98 /* EventsViewController.swift */,
+				668B956E1C00049A0038DF98 /* AlarmsViewController.swift */,
+				668B95701C0004AB0038DF98 /* SettingsViewController.swift */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		668B95721C0005620038DF98 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				668B95731C0005870038DF98 /* Reading.swift */,
+				668B95751C0007BB0038DF98 /* Garden.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		668B95951C00D5BC0038DF98 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				668B95961C00D5D90038DF98 /* ReadingTableViewCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		7E8EE221D268445E307FF6CC /* Frameworks */ = {
@@ -226,8 +266,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				668B95761C0007BB0038DF98 /* Garden.swift in Sources */,
 				668B95691BFFFC570038DF98 /* ErrorHandling.swift in Sources */,
+				668B95741C0005870038DF98 /* Reading.swift in Sources */,
+				668B95971C00D5D90038DF98 /* ReadingTableViewCell.swift in Sources */,
+				668B956D1C00048A0038DF98 /* EventsViewController.swift in Sources */,
+				668B956B1C0004760038DF98 /* DashboardViewController.swift in Sources */,
 				668B95511BFFF8860038DF98 /* AppDelegate.swift in Sources */,
+				668B956F1C00049A0038DF98 /* AlarmsViewController.swift in Sources */,
+				668B95711C0004AB0038DF98 /* SettingsViewController.swift in Sources */,
+				668B95991C064FDC0038DF98 /* ParseHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +391,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FrazierApps.Smart-Garden";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				a = "";
 			};
 			name = Debug;
 		};
@@ -355,6 +404,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FrazierApps.Smart-Garden";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				a = "";
 			};
 			name = Release;
 		};

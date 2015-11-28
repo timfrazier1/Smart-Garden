@@ -16,8 +16,38 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="bPQ-A5-OjL">
+                                <rect key="frame" x="180" y="174" width="240" height="252"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Aqm-JE-PVk"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fg-lI-Wcq">
+                                <rect key="frame" x="192" y="28" width="217" height="102"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="217" id="T5a-nc-1uA"/>
+                                </constraints>
+                                <string key="text">The 
+Smart Garden
+Project</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" red="0.043137254901960784" green="0.32156862745098042" blue="0.12941176470588237" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bPQ-A5-OjL" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="3wg-FF-SLb"/>
+                            <constraint firstItem="0fg-lI-Wcq" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="8" symbolic="YES" id="SA7-Se-dAI"/>
+                            <constraint firstItem="0fg-lI-Wcq" firstAttribute="centerX" secondItem="bPQ-A5-OjL" secondAttribute="centerX" id="dBb-fs-4oP"/>
+                            <constraint firstItem="bPQ-A5-OjL" firstAttribute="top" secondItem="0fg-lI-Wcq" secondAttribute="bottom" constant="44" id="gbJ-Db-0Xa"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="bPQ-A5-OjL" secondAttribute="bottom" constant="174" id="p6p-hg-JRI"/>
+                            <constraint firstItem="bPQ-A5-OjL" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="taR-hP-bVu"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -25,4 +55,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo" width="122" height="127"/>
+    </resources>
 </document>

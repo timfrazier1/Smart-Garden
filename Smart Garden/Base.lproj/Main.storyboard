@@ -3,12 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Events-->
         <scene sceneID="Oea-t8-BDq">
             <objects>
-                <viewController id="dvW-Q5-qgZ" sceneMemberID="viewController">
+                <viewController id="dvW-Q5-qgZ" customClass="EventsViewController" customModule="Smart_Garden" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Flo-rQ-dhm"/>
                         <viewControllerLayoutGuide type="bottom" id="Zi4-Nv-ksM"/>
@@ -28,7 +29,7 @@
         <!--Setttings-->
         <scene sceneID="CKe-xS-gD0">
             <objects>
-                <viewController id="e0n-eO-aZw" sceneMemberID="viewController">
+                <viewController id="e0n-eO-aZw" customClass="SettingsViewController" customModule="Smart_Garden" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0bX-d3-IXY"/>
                         <viewControllerLayoutGuide type="bottom" id="YYv-11-6Eq"/>
@@ -48,7 +49,7 @@
         <!--Alarms-->
         <scene sceneID="bDL-gW-TtT">
             <objects>
-                <viewController id="Cgz-C1-HLp" sceneMemberID="viewController">
+                <viewController id="Cgz-C1-HLp" customClass="AlarmsViewController" customModule="Smart_Garden" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rvf-IV-2Lf"/>
                         <viewControllerLayoutGuide type="bottom" id="xon-YF-4xp"/>
@@ -65,10 +66,10 @@
             </objects>
             <point key="canvasLocation" x="746" y="1354"/>
         </scene>
-        <!--Home-->
+        <!--Dashboard View Controller-->
         <scene sceneID="KYz-Jk-NmF">
             <objects>
-                <viewController id="XBh-ZR-Qn4" sceneMemberID="viewController">
+                <viewController id="XBh-ZR-Qn4" userLabel="Dashboard View Controller" customClass="DashboardViewController" customModule="Smart_Garden" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Ma-y0-1fd"/>
                         <viewControllerLayoutGuide type="bottom" id="Rvk-xx-NZB"/>
@@ -76,14 +77,93 @@
                     <view key="view" contentMode="scaleToFill" id="jml-9H-wBx">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="The Smart Garden Project" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qpc-lE-J6c">
+                                <rect key="frame" x="152" y="20" width="296" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="106" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qJS-55-zsU">
+                                <rect key="frame" x="0.0" y="60" width="600" height="491"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReadingCell" rowHeight="100" id="vpJ-Ru-dpS" customClass="ReadingTableViewCell" customModule="Smart_Garden" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vpJ-Ru-dpS" id="Kso-pT-GhX">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Sun" translatesAutoresizingMaskIntoConstraints="NO" id="3M5-Xy-88r">
+                                                    <rect key="frame" x="8" y="15" width="70" height="70"/>
+                                                    <animations/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Value" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sku-VJ-aar">
+                                                    <rect key="frame" x="428" y="21" width="164" height="58"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="40"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reading_name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGt-pc-Dh7">
+                                                    <rect key="frame" x="95" y="21" width="319" height="58"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="35"/>
+                                                    <color key="textColor" red="0.99408143940000004" green="0.99408143940000004" blue="0.99408143940000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="sku-VJ-aar" firstAttribute="trailing" secondItem="Kso-pT-GhX" secondAttribute="trailingMargin" id="zZ7-LR-gnY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.054901960784313725" green="0.41176470588235292" blue="0.17254901960784313" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="readingLabel" destination="tGt-pc-Dh7" id="QX0-kk-Pv7"/>
+                                            <outlet property="readingTypeImageView" destination="3M5-Xy-88r" id="HjZ-oH-Sgb"/>
+                                            <outlet property="valueLabel" destination="sku-VJ-aar" id="IiA-U1-t4L"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="XBh-ZR-Qn4" id="ADd-c0-0WX"/>
+                                </connections>
+                            </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="1bk-za-rJm">
+                                <rect key="frame" x="20" y="20" width="45" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="MLZ-V4-bH0"/>
+                                    <constraint firstAttribute="height" constant="30" id="da0-Zu-D49"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Qpc-lE-J6c" firstAttribute="top" secondItem="5Ma-y0-1fd" secondAttribute="bottom" id="2jf-bY-8Gm"/>
+                            <constraint firstAttribute="trailing" secondItem="qJS-55-zsU" secondAttribute="trailing" id="E7f-Gm-2jf"/>
+                            <constraint firstItem="qJS-55-zsU" firstAttribute="top" secondItem="Qpc-lE-J6c" secondAttribute="bottom" constant="10" id="KLJ-8N-EFI"/>
+                            <constraint firstItem="1bk-za-rJm" firstAttribute="top" secondItem="5Ma-y0-1fd" secondAttribute="bottom" id="VIY-RW-y0X"/>
+                            <constraint firstItem="1bk-za-rJm" firstAttribute="leading" secondItem="jml-9H-wBx" secondAttribute="leadingMargin" id="kg9-Mu-EBa"/>
+                            <constraint firstItem="Rvk-xx-NZB" firstAttribute="top" secondItem="qJS-55-zsU" secondAttribute="bottom" id="tLO-PW-dhZ"/>
+                            <constraint firstItem="Qpc-lE-J6c" firstAttribute="centerX" secondItem="jml-9H-wBx" secondAttribute="centerX" id="wrv-Vb-0w3"/>
+                            <constraint firstItem="qJS-55-zsU" firstAttribute="leading" secondItem="jml-9H-wBx" secondAttribute="leading" id="xqD-Yg-yyZ"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="home" id="tBS-BL-yCb"/>
+                    <connections>
+                        <outlet property="tableView" destination="qJS-55-zsU" id="CU6-99-X8V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gnC-Gj-JGH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="25"/>
+            <point key="canvasLocation" x="750" y="26"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="TSz-9T-QCs">
@@ -111,6 +191,8 @@
         <image name="Info" width="33" height="33"/>
         <image name="News" width="33" height="33"/>
         <image name="Settings" width="33" height="33"/>
+        <image name="Sun" width="33" height="33"/>
         <image name="home" width="38" height="36"/>
+        <image name="logo" width="122" height="127"/>
     </resources>
 </document>
