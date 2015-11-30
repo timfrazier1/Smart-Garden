@@ -21,7 +21,55 @@
 		668B95761C0007BB0038DF98 /* Garden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668B95751C0007BB0038DF98 /* Garden.swift */; };
 		668B95971C00D5D90038DF98 /* ReadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668B95961C00D5D90038DF98 /* ReadingTableViewCell.swift */; };
 		668B95991C064FDC0038DF98 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668B95981C064FDC0038DF98 /* ParseHelper.swift */; };
+		668B95C41C0BE8730038DF98 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 668B95BF1C0BE82F0038DF98 /* Charts.framework */; };
+		668B95C51C0BE8730038DF98 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 668B95BF1C0BE82F0038DF98 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		668B95CA1C0BEAB30038DF98 /* HistoryGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668B95C91C0BEAB30038DF98 /* HistoryGraphViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		668B95BE1C0BE82F0038DF98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 668B95B81C0BE82E0038DF98 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+		668B95C01C0BE82F0038DF98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 668B95B81C0BE82E0038DF98 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
+			remoteInfo = "Charts-TV";
+		};
+		668B95C21C0BE82F0038DF98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 668B95B81C0BE82E0038DF98 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
+			remoteInfo = ChartsTests;
+		};
+		668B95C61C0BE8730038DF98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 668B95B81C0BE82E0038DF98 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		668B95C81C0BE8740038DF98 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				668B95C51C0BE8730038DF98 /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1E0760B336485B92A7F93F67 /* Pods-Smart Garden.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Garden.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Garden/Pods-Smart Garden.release.xcconfig"; sourceTree = "<group>"; };
@@ -40,6 +88,8 @@
 		668B95751C0007BB0038DF98 /* Garden.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Garden.swift; sourceTree = "<group>"; };
 		668B95961C00D5D90038DF98 /* ReadingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingTableViewCell.swift; sourceTree = "<group>"; };
 		668B95981C064FDC0038DF98 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
+		668B95B81C0BE82E0038DF98 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = SOURCE_ROOT; };
+		668B95C91C0BEAB30038DF98 /* HistoryGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryGraphViewController.swift; path = "View Controllers/HistoryGraphViewController.swift"; sourceTree = "<group>"; };
 		CD2D1438050E75CCAF99299F /* Pods-Smart Garden.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Garden.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Garden/Pods-Smart Garden.debug.xcconfig"; sourceTree = "<group>"; };
 		CEF2F8B3CB2D59FF5A03BFFB /* Pods_Smart_Garden.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Garden.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -50,6 +100,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4610ED564A1985CD14A3D6A4 /* Pods_Smart_Garden.framework in Frameworks */,
+				668B95C41C0BE8730038DF98 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +110,7 @@
 		668B95441BFFF8860038DF98 = {
 			isa = PBXGroup;
 			children = (
+				668B95B81C0BE82E0038DF98 /* Charts.xcodeproj */,
 				668B954F1BFFF8860038DF98 /* Smart Garden */,
 				668B954E1BFFF8860038DF98 /* Products */,
 				B9B5B33FFBDA3A0329628FC3 /* Pods */,
@@ -106,6 +158,7 @@
 				668B956C1C00048A0038DF98 /* EventsViewController.swift */,
 				668B956E1C00049A0038DF98 /* AlarmsViewController.swift */,
 				668B95701C0004AB0038DF98 /* SettingsViewController.swift */,
+				668B95C91C0BEAB30038DF98 /* HistoryGraphViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -125,6 +178,16 @@
 				668B95961C00D5D90038DF98 /* ReadingTableViewCell.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		668B95B91C0BE82E0038DF98 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				668B95BF1C0BE82F0038DF98 /* Charts.framework */,
+				668B95C11C0BE82F0038DF98 /* Charts.framework */,
+				668B95C31C0BE82F0038DF98 /* ChartsTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		7E8EE221D268445E307FF6CC /* Frameworks */ = {
@@ -157,10 +220,12 @@
 				668B954B1BFFF8860038DF98 /* Resources */,
 				55C4E1C64DF0C174BF3F9563 /* Embed Pods Frameworks */,
 				0479EDC24DBDEB48353651EE /* Copy Pods Resources */,
+				668B95C81C0BE8740038DF98 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				668B95C71C0BE8730038DF98 /* PBXTargetDependency */,
 			);
 			name = "Smart Garden";
 			productName = "Smart Garden";
@@ -193,12 +258,42 @@
 			mainGroup = 668B95441BFFF8860038DF98;
 			productRefGroup = 668B954E1BFFF8860038DF98 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 668B95B91C0BE82E0038DF98 /* Products */;
+					ProjectRef = 668B95B81C0BE82E0038DF98 /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				668B954C1BFFF8860038DF98 /* Smart Garden */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		668B95BF1C0BE82F0038DF98 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 668B95BE1C0BE82F0038DF98 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		668B95C11C0BE82F0038DF98 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 668B95C01C0BE82F0038DF98 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		668B95C31C0BE82F0038DF98 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 668B95C21C0BE82F0038DF98 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		668B954B1BFFF8860038DF98 /* Resources */ = {
@@ -271,6 +366,7 @@
 				668B95741C0005870038DF98 /* Reading.swift in Sources */,
 				668B95971C00D5D90038DF98 /* ReadingTableViewCell.swift in Sources */,
 				668B956D1C00048A0038DF98 /* EventsViewController.swift in Sources */,
+				668B95CA1C0BEAB30038DF98 /* HistoryGraphViewController.swift in Sources */,
 				668B956B1C0004760038DF98 /* DashboardViewController.swift in Sources */,
 				668B95511BFFF8860038DF98 /* AppDelegate.swift in Sources */,
 				668B956F1C00049A0038DF98 /* AlarmsViewController.swift in Sources */,
@@ -280,6 +376,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		668B95C71C0BE8730038DF98 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Charts-iOS";
+			targetProxy = 668B95C61C0BE8730038DF98 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		668B95541BFFF8860038DF98 /* Main.storyboard */ = {
@@ -387,6 +491,7 @@
 			baseConfigurationReference = CD2D1438050E75CCAF99299F /* Pods-Smart Garden.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Smart Garden/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FrazierApps.Smart-Garden";
@@ -400,6 +505,7 @@
 			baseConfigurationReference = 1E0760B336485B92A7F93F67 /* Pods-Smart Garden.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Smart Garden/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FrazierApps.Smart-Garden";

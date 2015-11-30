@@ -16,7 +16,9 @@ class DashboardViewController: UIViewController {
     var readingArray: [Reading] = []
     var currentUserGardens: [Garden] = []
     var currentGarden: Garden?
-    var currentReadings: [Int] = []
+    var currentReadings: Array<Array<Int>> = []
+    var currentReadingTypes: [String] = []
+    var currentReadingValues: [Int] = []
     var rowCount: Int = 0
     
     
@@ -32,12 +34,24 @@ class DashboardViewController: UIViewController {
         ParseHelper.gardenRequestForCurrentUser { (result: [PFObject]?, error: NSError?) -> Void in
             self.currentUserGardens = result as? [Garden] ?? []
             self.currentGarden = self.currentUserGardens[0]
-            self.rowCount = (self.currentGarden?.pName.count)!
+
             
             ParseHelper.readingsRequestForCurrentUser (self.currentGarden!) { (result: [PFObject]?, error: NSError?) -> Void in
             
                 self.readingArray = result as? [Reading] ?? []
                 self.currentReadings = self.readingArray[0].readings
+                
+                for i in 0..<self.currentReadings.count {
+                    for j in 0..<self.currentReadings[i].count {
+                        //self.currentReadingTypes.append("\((self.currentGarden?.pName[i])!)\(j+1)")
+                        self.currentReadingTypes.append((self.currentGarden?.pName[i])!)
+                        self.currentReadingValues.append(self.currentReadings[i][j])
+                    }
+                }
+                
+                self.rowCount = (self.currentReadingValues.count)
+                //print("The types are: \(self.currentReadingTypes)")
+                //print("The values are: \(self.currentReadingValues)")
                 self.tableView.reloadData()
             }
         }
@@ -74,20 +88,14 @@ extension DashboardViewController: UITableViewDataSource {
         // 2
         let cell = tableView.dequeueReusableCellWithIdentifier("ReadingCell") as! ReadingTableViewCell
         
-        let readingType = self.currentGarden?.pName[indexPath.row]
+        let readingType = self.currentReadingTypes[indexPath.row]
         
-        cell.readingTypeImageView.image = UIImage(named: String(UTF8String: readingType!)!)
-       /* switch readingType {
-            case "Sun":
-                cell.readingTypeImageView.image = "Sun"
-            case "Humidity":
-            
-        }   */
-        
-        cell.readingLabel.text = String(readingType!)
-        cell.valueLabel.text = String(self.currentReadings[indexPath.row])
-        print("Current reading is \(String(readingType!)) and the value is \(String(self.currentReadings[indexPath.row]))")
+        cell.readingTypeImageView.image = UIImage(named: String(UTF8String: readingType)!)
+        cell.readingLabel.text = String(readingType)
+        cell.valueLabel.text = String(self.currentReadingValues[indexPath.row])
+        print("Current reading is \(String(readingType)) and the value is \(String(self.currentReadingValues[indexPath.row]))")
         return cell
+        
     }
     
 }
