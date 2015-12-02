@@ -33,3 +33,14 @@ class ParseHelper {
     }
     
 }
+
+extension PFObject {
+    
+    public override func isEqual(object: AnyObject?) -> Bool {
+        if (object as? PFObject)?.objectId == self.objectId {
+            return true
+        } else {
+            return super.isEqual(object)
+        }
+    }
+}

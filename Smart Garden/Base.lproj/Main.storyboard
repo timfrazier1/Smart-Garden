@@ -90,11 +90,11 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReadingCell" rowHeight="100" id="vpJ-Ru-dpS" customClass="ReadingTableViewCell" customModule="Smart_Garden" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ReadingCell" rowHeight="100" id="vpJ-Ru-dpS" customClass="ReadingTableViewCell" customModule="Smart_Garden" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vpJ-Ru-dpS" id="Kso-pT-GhX">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sun" translatesAutoresizingMaskIntoConstraints="NO" id="3M5-Xy-88r">
@@ -174,25 +174,63 @@
             </objects>
             <point key="canvasLocation" x="750" y="26"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Current Readings-->
         <scene sceneID="8ya-dR-0ZV">
             <objects>
-                <tableViewController id="P63-9H-WS4" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="dJn-Qx-hgH">
+                <tableViewController title="Current Readings" id="P63-9H-WS4" customClass="ReadingsViewController" customModule="Smart_Garden" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="dJn-Qx-hgH">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="IRb-d0-dTN">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Reading2Cell" rowHeight="76" id="IRb-d0-dTN" customClass="ReadingTable2ViewCell" customModule="Smart_Garden" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="76"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IRb-d0-dTN" id="VYR-dR-T6h">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="75.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sun" translatesAutoresizingMaskIntoConstraints="NO" id="7fV-tt-vPM">
+                                            <rect key="frame" x="0.0" y="5" width="65" height="65"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="65" id="qV7-ov-Xi0"/>
+                                                <constraint firstAttribute="height" constant="65" id="xdD-GC-vz4"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIl-8L-ADF">
+                                            <rect key="frame" x="457.5" y="14" width="93.5" height="48"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="40"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reading_name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aho-8J-WLo">
+                                            <rect key="frame" x="80" y="16" width="210.5" height="42.5"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="35"/>
+                                            <color key="textColor" red="0.99408143940000004" green="0.99408143940000004" blue="0.99408143940000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="oIl-8L-ADF" secondAttribute="trailing" constant="8" id="65X-Qw-n7e"/>
+                                        <constraint firstItem="7fV-tt-vPM" firstAttribute="centerY" secondItem="VYR-dR-T6h" secondAttribute="centerY" id="86P-R9-CBE"/>
+                                        <constraint firstItem="Aho-8J-WLo" firstAttribute="leading" secondItem="7fV-tt-vPM" secondAttribute="trailing" constant="15" id="K3K-SL-nIc"/>
+                                        <constraint firstItem="oIl-8L-ADF" firstAttribute="centerY" secondItem="VYR-dR-T6h" secondAttribute="centerY" id="dwb-bs-P5U"/>
+                                        <constraint firstItem="Aho-8J-WLo" firstAttribute="centerY" secondItem="VYR-dR-T6h" secondAttribute="centerY" id="igE-4c-lgO"/>
+                                        <constraint firstItem="7fV-tt-vPM" firstAttribute="leading" secondItem="VYR-dR-T6h" secondAttribute="leadingMargin" constant="-8" id="sip-B8-HpR"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <color key="backgroundColor" red="0.043137254899999998" green="0.41114298094827584" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="reading2Label" destination="Aho-8J-WLo" id="Vua-1R-0Ha"/>
+                                    <outlet property="readingType2ImageView" destination="7fV-tt-vPM" id="259-Sw-JYA"/>
+                                    <outlet property="value2Label" destination="oIl-8L-ADF" id="5XP-Nd-bGu"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -200,17 +238,57 @@
                             <outlet property="delegate" destination="P63-9H-WS4" id="1dd-MV-EN2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="k1x-cb-mkq"/>
+                    <navigationItem key="navigationItem" title="Current Readings" id="k1x-cb-mkq"/>
+                    <connections>
+                        <outlet property="table2View" destination="dJn-Qx-hgH" id="zqN-3V-QGa"/>
+                        <segue destination="3lD-9R-aFJ" kind="show" identifier="displayChart" id="Cex-1f-6S2"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T44-Kd-Ct1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1570" y="-683"/>
         </scene>
-        <!--Item-->
+        <!--History Graph View Controller-->
+        <scene sceneID="MY7-sO-gA8">
+            <objects>
+                <viewController id="3lD-9R-aFJ" customClass="HistoryGraphViewController" customModule="Smart_Garden" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g0p-3O-Y0D"/>
+                        <viewControllerLayoutGuide type="bottom" id="GYF-Cw-DXE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2bK-U9-J9J">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tjd-9o-nrT" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Tjd-9o-nrT" firstAttribute="leading" secondItem="2bK-U9-J9J" secondAttribute="leading" id="LnP-C8-8Ni"/>
+                            <constraint firstAttribute="trailing" secondItem="Tjd-9o-nrT" secondAttribute="trailing" id="WMJ-4t-KXH"/>
+                            <constraint firstItem="GYF-Cw-DXE" firstAttribute="top" secondItem="Tjd-9o-nrT" secondAttribute="bottom" id="aLJ-Sf-NNO"/>
+                            <constraint firstItem="Tjd-9o-nrT" firstAttribute="top" secondItem="g0p-3O-Y0D" secondAttribute="bottom" id="rKb-OY-wK5"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <connections>
+                        <outlet property="lineChartView" destination="Tjd-9o-nrT" id="RL3-cb-ezZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="leC-TR-Xea" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2248" y="-681"/>
+        </scene>
+        <!--Home-->
         <scene sceneID="0TQ-1k-CQb">
             <objects>
                 <navigationController id="SPJ-Xo-Y9i" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="s4P-H2-HYn"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home" id="s4P-H2-HYn"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ev1-oz-rcd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -224,34 +302,6 @@
             </objects>
             <point key="canvasLocation" x="750" y="-683"/>
         </scene>
-        <!--History Graph View Controller-->
-        <scene sceneID="aCL-3f-L6r">
-            <objects>
-                <viewController id="LQL-UF-xpN" customClass="HistoryGraphViewController" customModule="Smart_Garden" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="KqX-38-ECy"/>
-                        <viewControllerLayoutGuide type="bottom" id="A3s-JH-9aD"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="37N-S2-gB0">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xtg-Wy-5j1">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
-                                <animations/>
-                                <items>
-                                    <navigationItem title="Past 24 Hours" id="ZZR-BO-gCG"/>
-                                </items>
-                            </navigationBar>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NQW-b3-zrb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1597" y="180"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="TSz-9T-QCs">
             <objects>
@@ -263,11 +313,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="XBh-ZR-Qn4" kind="relationship" relationship="viewControllers" id="Qon-BN-Ovk"/>
+                        <segue destination="SPJ-Xo-Y9i" kind="relationship" relationship="viewControllers" id="PAJ-XO-iqN"/>
                         <segue destination="dvW-Q5-qgZ" kind="relationship" relationship="viewControllers" id="lw5-0B-1ZO"/>
                         <segue destination="Cgz-C1-HLp" kind="relationship" relationship="viewControllers" id="WNV-hF-SoT"/>
                         <segue destination="e0n-eO-aZw" kind="relationship" relationship="viewControllers" id="uzJ-lZ-1BL"/>
-                        <segue destination="SPJ-Xo-Y9i" kind="relationship" relationship="viewControllers" id="PAJ-XO-iqN"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VTv-Rr-ChC" userLabel="First Responder" sceneMemberID="firstResponder"/>

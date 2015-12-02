@@ -24,6 +24,8 @@
 		668B95C41C0BE8730038DF98 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 668B95BF1C0BE82F0038DF98 /* Charts.framework */; };
 		668B95C51C0BE8730038DF98 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 668B95BF1C0BE82F0038DF98 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		668B95CA1C0BEAB30038DF98 /* HistoryGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668B95C91C0BEAB30038DF98 /* HistoryGraphViewController.swift */; };
+		668B95CE1C0BF3F30038DF98 /* ReadingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668B95CD1C0BF3F30038DF98 /* ReadingsViewController.swift */; };
+		668B95D01C0BF6FE0038DF98 /* ReadingTable2ViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668B95CF1C0BF6FE0038DF98 /* ReadingTable2ViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,8 @@
 		668B95981C064FDC0038DF98 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		668B95B81C0BE82E0038DF98 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = SOURCE_ROOT; };
 		668B95C91C0BEAB30038DF98 /* HistoryGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryGraphViewController.swift; path = "View Controllers/HistoryGraphViewController.swift"; sourceTree = "<group>"; };
+		668B95CD1C0BF3F30038DF98 /* ReadingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReadingsViewController.swift; path = "View Controllers/ReadingsViewController.swift"; sourceTree = "<group>"; };
+		668B95CF1C0BF6FE0038DF98 /* ReadingTable2ViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingTable2ViewCell.swift; sourceTree = "<group>"; };
 		CD2D1438050E75CCAF99299F /* Pods-Smart Garden.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Garden.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Garden/Pods-Smart Garden.debug.xcconfig"; sourceTree = "<group>"; };
 		CEF2F8B3CB2D59FF5A03BFFB /* Pods_Smart_Garden.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Garden.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -159,6 +163,7 @@
 				668B956E1C00049A0038DF98 /* AlarmsViewController.swift */,
 				668B95701C0004AB0038DF98 /* SettingsViewController.swift */,
 				668B95C91C0BEAB30038DF98 /* HistoryGraphViewController.swift */,
+				668B95CD1C0BF3F30038DF98 /* ReadingsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				668B95961C00D5D90038DF98 /* ReadingTableViewCell.swift */,
+				668B95CF1C0BF6FE0038DF98 /* ReadingTable2ViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -372,6 +378,8 @@
 				668B956F1C00049A0038DF98 /* AlarmsViewController.swift in Sources */,
 				668B95711C0004AB0038DF98 /* SettingsViewController.swift in Sources */,
 				668B95991C064FDC0038DF98 /* ParseHelper.swift in Sources */,
+				668B95CE1C0BF3F30038DF98 /* ReadingsViewController.swift in Sources */,
+				668B95D01C0BF6FE0038DF98 /* ReadingTable2ViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
