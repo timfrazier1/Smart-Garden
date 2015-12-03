@@ -18,9 +18,9 @@ class ReadingsViewController: UIViewController {
     var readingArray: [Reading] = []
     var currentUserGardens: [Garden] = []
     var currentGarden: Garden?
-    var currentReadings: Array<Array<Int>> = []
+    var currentReadings: Array<Array<Double>> = []
     var currentReadingTypes: [String] = []
-    var currentReadingValues: [Int] = []
+    var currentReadingValues: [Double] = []
     var rowCount: Int = 0
     var selectedReading: String = ""
     var selectedReadingIndex: Int = 0
@@ -47,8 +47,8 @@ class ReadingsViewController: UIViewController {
                 
                 for i in 0..<self.currentReadings.count {
                     for j in 0..<self.currentReadings[i].count {
-                        //self.currentReadingTypes.append("\((self.currentGarden?.pName[i])!)\(j+1)")
-                        self.currentReadingTypes.append((self.currentGarden?.pName[i])!)
+                        self.currentReadingTypes.append("\((self.currentGarden?.pName[i])!)\(j+1)")
+                        //Revert if fails - self.currentReadingTypes.append((self.currentGarden?.pName[i])!)
                         self.currentReadingValues.append(self.currentReadings[i][j])
                     }
                 }
@@ -80,7 +80,8 @@ class ReadingsViewController: UIViewController {
             //print("Path = \(path)")
         
             chartViewController.readingArray = self.readingArray
-            chartViewController.readingLabels = (self.currentGarden?.pName)!
+            //Revert if fails - chartViewController.readingLabels = (self.currentGarden?.pName)!
+            chartViewController.readingLabels = self.currentReadingTypes
             chartViewController.selectedReading = self.selectedReading
             chartViewController.selectedReadingIndex = self.selectedReadingIndex
             print("Segue selected Reading index is: \(chartViewController.selectedReadingIndex)")
@@ -108,10 +109,15 @@ extension ReadingsViewController: UITableViewDataSource {
         
         let readingType = self.currentReadingTypes[indexPath.row]
         
-        cell.readingType2ImageView.image = UIImage(named: String(UTF8String: readingType)!)
+        // This hack makes the image displaying work for up to 9 sensors of the same type (e.g. only one integer digit after the type)
+        let imageType = String(UTF8String: readingType)!
+        cell.readingType2ImageView.image = UIImage(named: imageType[Range(start: imageType.startIndex, end: imageType.endIndex.advancedBy(-1))])
+        // Revert if fail - cell.readingType2ImageView.image = UIImage(named: String(UTF8String: readingType)!)
+        
+        
         cell.reading2Label.text = String(readingType)
         cell.value2Label.text = String(self.currentReadingValues[indexPath.row])
-        print("Current reading is \(String(readingType)) and the value is \(String(self.currentReadingValues[indexPath.row]))")
+        //print("Current reading is \(String(readingType)) and the value is \(String(self.currentReadingValues[indexPath.row]))")
         return cell
         
     }
@@ -126,7 +132,8 @@ extension ReadingsViewController: UITableViewDelegate {
         let currentCell = tableView.cellForRowAtIndexPath(indexPath!) as! ReadingTable2ViewCell
         
         self.selectedReading = currentCell.reading2Label.text!
-        self.selectedReadingIndex = (self.currentGarden?.pName.indexOf(currentCell.reading2Label.text!))!
+        // Revert if fails - self.selectedReadingIndex = (self.currentGarden?.pName.indexOf(currentCell.reading2Label.text!))!
+        self.selectedReadingIndex = (self.currentReadingTypes.indexOf(currentCell.reading2Label.text!))!
         print("Home selected Reading index is: \(self.selectedReadingIndex)")
         performSegueWithIdentifier("displayChart", sender: self)
         

@@ -6,6 +6,7 @@
 //  Copyright © 2015 FrazierApps. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import Charts
 
@@ -19,6 +20,7 @@ class HistoryGraphViewController: UIViewController {
     var selectedReadingIndex: Int = 0
     var chartReadings: [Double] = []
     var chartTimes: [String] = []
+    var compiledReadingArray: [Double] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +32,25 @@ class HistoryGraphViewController: UIViewController {
         //print("Reading Array is: \(readingArray)")
         chartReadings = []
         chartTimes = []
+
         print("Selected reading index is: \(selectedReadingIndex)")
-        for i in 0..<readingArray.count {
-            chartReadings.append(Double(readingArray[i].readings[selectedReadingIndex][0]))  // Currently only displays readings for the first sensor in a group!!!!
+        
+        
+        for i in 0..<readingArray.count {  // For each reading row in the Parse Database
+            compiledReadingArray = [] //Reset the array
             
+            for j in 0..<readingArray[i].readings.count {  // For each of the individual reading arrays
+                for k in 0..<readingArray[i].readings[j].count {  // For each individual reading within the individual reading arrays
+                    compiledReadingArray.append(Double(readingArray[i].readings[j][k]))
+                }
+            }
+            // After compiling a new "compiledReadingArray", then append the correct item for the chart readings:
+            chartReadings.append(compiledReadingArray[self.selectedReadingIndex])
+            // Revert if fails - chartReadings.append(Double(readingArray[i].readings[selectedReadingIndex][0]))
+
+                // Currently only displays readings for the first sensor in a group!!!!
+                // Also need to limit the number of readings to gather - ie. get last 10 readings or the total readingArray.count, whichever is less
+           
             /***CONVERT FROM NSDate to String ****/
             let date = readingArray[i].createdAt! //get the time, in this case the time an object was created.
             //format date
@@ -46,7 +63,7 @@ class HistoryGraphViewController: UIViewController {
         
         print("Chart readings are: \(self.chartReadings)")
         
-        setChart(self.chartTimes.reverse(), values: self.chartReadings.reverse())
+        setChart(self.chartTimes.reverse(), values: self.chartReadings.reverse(), label: self.selectedReading)
 
     }
 
@@ -55,7 +72,7 @@ class HistoryGraphViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func setChart(dataPoints: [String], values: [Double]) {
+    func setChart(dataPoints: [String], values: [Double], label: String) {
         lineChartView.noDataText = "No historical readings available"
         
         var dataEntries: [ChartDataEntry] = []
@@ -65,7 +82,7 @@ class HistoryGraphViewController: UIViewController {
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = LineChartDataSet(yVals: dataEntries, label: "Units Sold")
+        let chartDataSet = LineChartDataSet(yVals: dataEntries, label: label)
         chartDataSet.drawCubicEnabled = true
         chartDataSet.cubicIntensity = 0.1
         
