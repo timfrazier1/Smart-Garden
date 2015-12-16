@@ -103,6 +103,7 @@ class HistoryGraphViewController: UIViewController {
         lineChartView.backgroundColor = UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 1)
         //lineChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         lineChartView.data = chartData
+        lineChartView.descriptionText = "10 Most recent \(label) readings"
         
     }
 

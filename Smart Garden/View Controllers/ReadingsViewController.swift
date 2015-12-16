@@ -8,20 +8,38 @@
 
 import UIKit
 import Parse
+import ConvenienceKit
 
-class ReadingsViewController: UIViewController {
+public var rowCount: Int = 0
+public var currentReadingTypes: [String] = []
+public var customReadingTypes: [String] = []
 
-    //@IBOutlet weak var tableView: UITableView!
-    @IBOutlet var table2View: UITableView!
+class ReadingsViewController: UIViewController {  //, TimelineComponentTarget {
+
+    var defaultRange = 0...8
+    var additionalRangeSize = 5
+
+    @IBOutlet weak var tableView: UITableView!
+
     
+    //var timelineComponent: TimelineComponent<Reading, ReadingsViewController>!
+    
+    
+    // TODO items: 
+    // [+] incorporate timeline component to allow for pull to refresh
+    // [+] asynchronous loading of data (is this necessary)?
+    // [+] User login page + linking user to garden
+    // [+] Update settings view controller to allow for sensor names to be customized
+    // [+] Settings view controller could also be 
     
     var readingArray: [Reading] = []
     var currentUserGardens: [Garden] = []
     var currentGarden: Garden?
     var currentReadings: Array<Array<Double>> = []
-    var currentReadingTypes: [String] = []
+    var readingCreatedAt: String = ""
+    
     var currentReadingValues: [Double] = []
-    var rowCount: Int = 0
+
     var selectedReading: String = ""
     var selectedReadingIndex: Int = 0
     
@@ -29,43 +47,79 @@ class ReadingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
+      //  timelineComponent = TimelineComponent(target: self)
         ParseHelper.gardenRequestForCurrentUser { (result: [PFObject]?, error: NSError?) -> Void in
             self.currentUserGardens = result as? [Garden] ?? []
             self.currentGarden = self.currentUserGardens[0]
             
-            
-            ParseHelper.readingsRequestForCurrentUser (self.currentGarden!) { (result: [PFObject]?, error: NSError?) -> Void in
+            ParseHelper.readingsRequestForCurrentUser (self.currentGarden!, range: self.defaultRange) { (result: [PFObject]?, error: NSError?) -> Void in
                 
                 self.readingArray = result as? [Reading] ?? []
+
+                let formatter = NSDateFormatter()
+                formatter.dateStyle = NSDateFormatterStyle.ShortStyle
+                formatter.timeStyle = NSDateFormatterStyle.ShortStyle
+                self.readingCreatedAt = formatter.stringFromDate(self.readingArray[0].createdAt!)
+
+                
                 self.currentReadings = self.readingArray[0].readings
                 
                 for i in 0..<self.currentReadings.count {
                     for j in 0..<self.currentReadings[i].count {
-                        self.currentReadingTypes.append("\((self.currentGarden?.pName[i])!)\(j+1)")
+                        currentReadingTypes.append("\((self.currentGarden?.pName[i])!)\(j+1)")
                         //Revert if fails - self.currentReadingTypes.append((self.currentGarden?.pName[i])!)
                         self.currentReadingValues.append(self.currentReadings[i][j])
                     }
                 }
                 
-                self.rowCount = (self.currentReadingValues.count)
+                rowCount = (self.currentReadingValues.count)
                 //print("The types are: \(self.currentReadingTypes)")
                 //print("The values are: \(self.currentReadingValues)")
-                self.table2View.reloadData()
+                
+                if NSUserDefaults.standardUserDefaults().objectForKey("customReadingTypes") != nil{
+                    customReadingTypes = NSUserDefaults.standardUserDefaults().objectForKey("customReadingTypes") as! [String]
+                } else {
+                    customReadingTypes = currentReadingTypes
+                }
+
+                self.tableView.reloadData()
             }
+
         }
+        
+                // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
+        
+     //   timelineComponent.loadInitialIfRequired()
+        
+    
+        
+    }
+/*
+    func loadInRange(range: Range<Int>, completionBlock: ([Reading]?) -> Void) {
+        ParseHelper.readingsRequestForCurrentUser(range: range) {(result: [PFObject]?, error: NSError?) -> Void in
+            if let error = error {
+                ErrorHandling.defaultErrorHandler(error)
+            }
+            self.readingArray = result as? [Reading] ?? []
+            completionBlock(self.readingArray)
+            
+        }
+    }
+*/
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func refreshButtonTapped(sender: AnyObject) {
+        
+        
+    }
     
     
     // MARK: - Navigation
@@ -76,19 +130,17 @@ class ReadingsViewController: UIViewController {
         if (segue.identifier == "displayChart") {
             
             let chartViewController = segue.destinationViewController as! HistoryGraphViewController
-            //let path = self.table2View.indexPathForSelectedRow!
+            //let path = self.tableView.indexPathForSelectedRow!
             //print("Path = \(path)")
         
             chartViewController.readingArray = self.readingArray
             //Revert if fails - chartViewController.readingLabels = (self.currentGarden?.pName)!
-            chartViewController.readingLabels = self.currentReadingTypes
+            chartViewController.readingLabels = customReadingTypes
             chartViewController.selectedReading = self.selectedReading
             chartViewController.selectedReadingIndex = self.selectedReadingIndex
             print("Segue selected Reading index is: \(chartViewController.selectedReadingIndex)")
         }
-        
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+
     }
 
     
@@ -107,7 +159,13 @@ extension ReadingsViewController: UITableViewDataSource {
         // 2
         let cell = tableView.dequeueReusableCellWithIdentifier("Reading2Cell") as! ReadingTable2ViewCell
         
-        let readingType = self.currentReadingTypes[indexPath.row]
+        let readingType = currentReadingTypes[indexPath.row]
+        var customReadingType = ""
+        if customReadingTypes.count <= indexPath.row {
+            customReadingType = readingType
+        } else {
+            customReadingType = customReadingTypes[indexPath.row]
+        }
         
         // This hack makes the image displaying work for up to 9 sensors of the same type (e.g. only one integer digit after the type)
         let imageType = String(UTF8String: readingType)!
@@ -115,7 +173,7 @@ extension ReadingsViewController: UITableViewDataSource {
         // Revert if fail - cell.readingType2ImageView.image = UIImage(named: String(UTF8String: readingType)!)
         
         
-        cell.reading2Label.text = String(readingType)
+        cell.reading2Label.text = String(customReadingType)
         cell.value2Label.text = String(self.currentReadingValues[indexPath.row])
         //print("Current reading is \(String(readingType)) and the value is \(String(self.currentReadingValues[indexPath.row]))")
         return cell
@@ -133,9 +191,26 @@ extension ReadingsViewController: UITableViewDelegate {
         
         self.selectedReading = currentCell.reading2Label.text!
         // Revert if fails - self.selectedReadingIndex = (self.currentGarden?.pName.indexOf(currentCell.reading2Label.text!))!
-        self.selectedReadingIndex = (self.currentReadingTypes.indexOf(currentCell.reading2Label.text!))!
+        print("\(currentCell.reading2Label.text!)")
+        
+        self.selectedReadingIndex = (customReadingTypes.indexOf(currentCell.reading2Label.text!))!
         print("Home selected Reading index is: \(self.selectedReadingIndex)")
         performSegueWithIdentifier("displayChart", sender: self)
         
     }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerCell = tableView.dequeueReusableCellWithIdentifier("ReadingHeader") as! ReadingTableHeader
+        
+        headerCell.gardenName.text = self.currentGarden?.gardenName
+        
+        headerCell.createdAt.text = "Last reading at \(self.readingCreatedAt)"
+        
+        return headerCell
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 75
+    }
+
 }

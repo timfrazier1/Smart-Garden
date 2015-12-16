@@ -20,13 +20,16 @@ class ParseHelper {
         gardenQuery!.findObjectsInBackgroundWithBlock(completionBlock)
     }
     // 2
-    static func readingsRequestForCurrentUser(currentGarden: Garden, completionBlock: PFQueryArrayResultBlock) {
+    static func readingsRequestForCurrentUser(currentGarden: Garden, range: Range<Int>, completionBlock: PFQueryArrayResultBlock) {
             
         let readingsQuery = Reading.query()
         readingsQuery!.whereKey("gardenID", equalTo: currentGarden)
             
         readingsQuery!.includeKey("readings")
         readingsQuery!.orderByDescending("createdAt")
+        
+        //Limiting the number of returned readings to 10 in order to keep the historical charts readable.
+        readingsQuery!.limit = 10
         
         readingsQuery!.findObjectsInBackgroundWithBlock(completionBlock)
 
