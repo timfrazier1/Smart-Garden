@@ -21,7 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("9DivrJXQJ1vLWBpWu2iUUAh1btbRW7N8M8oZ8lPQ", clientKey: "JlULkCtQIX4plaqtRSobcLR76Ty4QzcyYCpz5MtE")
         
         do {
-            try PFUser.logInWithUsername("test", password: "test")
+            //try PFUser.logInWithUsername("test", password: "test")
+            //try PFUser.logInWithUsername("testTeacher", password: "PASSWORD")
+            try PFUser.logInWithUsername("testStudent", password: "password")
         } catch {
             print(error)
         }

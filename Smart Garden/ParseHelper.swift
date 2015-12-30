@@ -14,7 +14,8 @@ class ParseHelper {
     
     static func gardenRequestForCurrentUser(completionBlock: PFQueryArrayResultBlock) {
         let gardenQuery = Garden.query()
-        gardenQuery!.whereKey("userID", equalTo: PFUser.currentUser()!)
+        //gardenQuery!.whereKey("userID", equalTo: PFUser.currentUser()!)
+        gardenQuery!.whereKey("userArray", equalTo: PFUser.currentUser()!)
         gardenQuery!.includeKey("pName")
         
         gardenQuery!.findObjectsInBackgroundWithBlock(completionBlock)
