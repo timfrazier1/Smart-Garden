@@ -46,48 +46,10 @@ class ReadingsViewController: UIViewController {  //, TimelineComponentTarget {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //  timelineComponent = TimelineComponent(target: self)
         
-      //  timelineComponent = TimelineComponent(target: self)
-        ParseHelper.gardenRequestForCurrentUser { (result: [PFObject]?, error: NSError?) -> Void in
-            self.currentUserGardens = result as? [Garden] ?? []
-            self.currentGarden = self.currentUserGardens[0]
-            
-            ParseHelper.readingsRequestForCurrentUser (self.currentGarden!, range: self.defaultRange) { (result: [PFObject]?, error: NSError?) -> Void in
-                
-                self.readingArray = result as? [Reading] ?? []
-
-                let formatter = NSDateFormatter()
-                formatter.dateStyle = NSDateFormatterStyle.ShortStyle
-                formatter.timeStyle = NSDateFormatterStyle.ShortStyle
-                self.readingCreatedAt = formatter.stringFromDate(self.readingArray[0].createdAt!)
-
-                
-                self.currentReadings = self.readingArray[0].readings
-                
-                for i in 0..<self.currentReadings.count {
-                    for j in 0..<self.currentReadings[i].count {
-                        currentReadingTypes.append("\((self.currentGarden?.pName[i])!)\(j+1)")
-                        //Revert if fails - self.currentReadingTypes.append((self.currentGarden?.pName[i])!)
-                        self.currentReadingValues.append(self.currentReadings[i][j])
-                    }
-                }
-                
-                rowCount = (self.currentReadingValues.count)
-                //print("The types are: \(self.currentReadingTypes)")
-                //print("The values are: \(self.currentReadingValues)")
-                
-                if NSUserDefaults.standardUserDefaults().objectForKey("customReadingTypes") != nil{
-                    customReadingTypes = NSUserDefaults.standardUserDefaults().objectForKey("customReadingTypes") as! [String]
-                } else {
-                    customReadingTypes = currentReadingTypes
-                }
-
-                self.tableView.reloadData()
-            }
-
-        }
-        
-                // Do any additional setup after loading the view.
+        self.getGardenData()
+        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -96,7 +58,74 @@ class ReadingsViewController: UIViewController {  //, TimelineComponentTarget {
         
      //   timelineComponent.loadInitialIfRequired()
         
+    }
     
+    func getGardenData() {
+        ParseHelper.gardenRequestForCurrentUser { (result: [PFObject]?, error: NSError?) -> Void in
+            self.currentUserGardens = result as? [Garden] ?? []
+            //print(self.currentUserGardens)
+            if self.currentUserGardens != [] {
+                self.currentGarden = self.currentUserGardens[0]   // **** Need to ensure that if a new user signs up this doesn't error out due to no gardens
+                
+                
+                ParseHelper.readingsRequestForCurrentUser (self.currentGarden!, range: self.defaultRange) { (result: [PFObject]?, error: NSError?) -> Void in
+                    
+                    self.readingArray = result as? [Reading] ?? []
+                    //print("Reading Array: \(self.readingArray)")
+                    
+                    let formatter = NSDateFormatter()
+                    formatter.dateStyle = NSDateFormatterStyle.ShortStyle
+                    formatter.timeStyle = NSDateFormatterStyle.ShortStyle
+                    self.readingCreatedAt = formatter.stringFromDate(self.readingArray[0].createdAt!)
+                    
+                    
+                    self.currentReadings = self.readingArray[0].readings
+                    //print("Current Readings are: \(self.currentReadings)")
+                    
+                    currentReadingTypes = []
+                    self.currentReadingValues = []
+                    for i in 0..<self.currentReadings.count {
+                        for j in 0..<self.currentReadings[i].count {
+                            currentReadingTypes.append("\((self.currentGarden?.pName[i])!)\(j+1)")
+                            //Revert if fails - self.currentReadingTypes.append((self.currentGarden?.pName[i])!)
+                            self.currentReadingValues.append(self.currentReadings[i][j])
+                        }
+                    }
+                    
+                    rowCount = (self.currentReadingValues.count)
+                    //print("The types are: \(currentReadingTypes)")
+                    //print("The values are: \(self.currentReadingValues)")
+                    
+                    if NSUserDefaults.standardUserDefaults().objectForKey("customReadingTypes") != nil{
+                        customReadingTypes = NSUserDefaults.standardUserDefaults().objectForKey("customReadingTypes") as! [String]
+                    } else {
+                        customReadingTypes = currentReadingTypes
+                    }
+                    
+                    self.tableView.reloadData()
+                }
+                
+            } else {
+                let dummyGarden = Garden()
+                dummyGarden.gardenName = "Example Garden"
+                dummyGarden.gardenCity = "New Town"
+                dummyGarden.pName = ["AirTemp","Humidity","WaterTemp","Sun","Leaks","pH"]
+                
+                
+                self.currentGarden = dummyGarden
+                
+                
+                self.currentReadings = [[85.0, 82.0], [95.0], [60.0, 64.0, 62.0], [15.0], [1.0], [5.0]]
+                currentReadingTypes = ["AirTemp1", "AirTemp2", "Humidity1", "WaterTemp1", "WaterTemp2", "WaterTemp3", "Sun1", "Leaks1", "pH1"]
+                self.currentReadingValues = [85.0, 82.0, 95.0, 60.0, 64.0, 62.0, 15.0, 1.0, 5.0]
+                customReadingTypes = currentReadingTypes
+                self.readingCreatedAt = "a long time ago..."
+                rowCount = (self.currentReadingValues.count)
+                
+                self.tableView.reloadData()
+            }
+            
+        }
         
     }
 /*
@@ -117,8 +146,7 @@ class ReadingsViewController: UIViewController {  //, TimelineComponentTarget {
     }
     
     @IBAction func refreshButtonTapped(sender: AnyObject) {
-        
-        
+        self.getGardenData()
     }
     
     
@@ -152,13 +180,14 @@ extension ReadingsViewController: UITableViewDataSource {
         // 1
         //return readings.count
         //return (self.currentGarden?.pName.count)!
+        print("Row count = \(rowCount)")
         return rowCount
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // 2
         let cell = tableView.dequeueReusableCellWithIdentifier("Reading2Cell") as! ReadingTable2ViewCell
-        
+        print("Table view cell code reached")
         let readingType = currentReadingTypes[indexPath.row]
         var customReadingType = ""
         if customReadingTypes.count <= indexPath.row {
@@ -175,7 +204,7 @@ extension ReadingsViewController: UITableViewDataSource {
         
         cell.reading2Label.text = String(customReadingType)
         cell.value2Label.text = String(self.currentReadingValues[indexPath.row])
-        //print("Current reading is \(String(readingType)) and the value is \(String(self.currentReadingValues[indexPath.row]))")
+        print("Current reading is \(String(readingType)) and the value is \(String(self.currentReadingValues[indexPath.row]))")
         return cell
         
     }

@@ -25,6 +25,7 @@ class ParseHelper {
             
         let readingsQuery = Reading.query()
         readingsQuery!.whereKey("gardenID", equalTo: currentGarden)
+        
             
         readingsQuery!.includeKey("readings")
         readingsQuery!.orderByDescending("createdAt")
