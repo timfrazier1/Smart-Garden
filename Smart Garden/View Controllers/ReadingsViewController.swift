@@ -10,9 +10,15 @@ import UIKit
 import Parse
 import ConvenienceKit
 
-public var rowCount: Int = 0
+public var rowCount: [Int] = [0, 0]
 public var currentReadingTypes: [String] = []
 public var customReadingTypes: [String] = []
+public var mainReadingTypes: Array<Array<String>> = []
+public var readingImageTypes: Array<Array<String>> = []
+public var mainReadingValues: Array<Array<Double>> = []
+public var numberOfGardens: Int = 0
+public var readingCreatedAt: [String] = []
+public var gardenNames: [String] = []
 
 class ReadingsViewController: UIViewController {  //, TimelineComponentTarget {
 
@@ -26,8 +32,8 @@ class ReadingsViewController: UIViewController {  //, TimelineComponentTarget {
     
     
     // TODO items: 
-    // [+] incorporate timeline component to allow for pull to refresh
-    // [+] asynchronous loading of data (is this necessary)?
+    // [+] need to fix the select row at index path
+    // [+] fix the readings settings to customize the sensor names - store in 'pName' in the garden Parse Object
     // [+] User login page + linking user to garden
     // [+] Update settings view controller to allow for sensor names to be customized
     // [+] Settings view controller could also be 
@@ -36,7 +42,7 @@ class ReadingsViewController: UIViewController {  //, TimelineComponentTarget {
     var currentUserGardens: [Garden] = []
     var currentGarden: Garden?
     var currentReadings: Array<Array<Double>> = []
-    var readingCreatedAt: String = ""
+
     
     var currentReadingValues: [Double] = []
 
@@ -48,13 +54,16 @@ class ReadingsViewController: UIViewController {  //, TimelineComponentTarget {
         super.viewDidLoad()
         //  timelineComponent = TimelineComponent(target: self)
         
-        self.getGardenData()
-        // Do any additional setup after loading the view.
+        
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        tableView.reloadData()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+       
+        if currentUserGardens.count == 0 {
+            // Get the garden data initially
+            self.getGardenData()
+        }
         
      //   timelineComponent.loadInitialIfRequired()
         
@@ -63,48 +72,80 @@ class ReadingsViewController: UIViewController {  //, TimelineComponentTarget {
     func getGardenData() {
         ParseHelper.gardenRequestForCurrentUser { (result: [PFObject]?, error: NSError?) -> Void in
             self.currentUserGardens = result as? [Garden] ?? []
-            //print(self.currentUserGardens)
+            
+            // If we have any returned Gardens, proceed to get the readings
             if self.currentUserGardens != [] {
-                self.currentGarden = self.currentUserGardens[0]   // **** Need to ensure that if a new user signs up this doesn't error out due to no gardens
                 
+                //print("Garden 0: \(self.currentUserGardens[0]["gardenName"])")
+                //print("Garden 1: \(self.currentUserGardens[1]["gardenName"])")
+                mainReadingTypes = []
+                readingImageTypes = []
+                mainReadingValues = []
+                readingCreatedAt = []
+                gardenNames = []
                 
-                ParseHelper.readingsRequestForCurrentUser (self.currentGarden!, range: self.defaultRange) { (result: [PFObject]?, error: NSError?) -> Void in
+                numberOfGardens = self.currentUserGardens.count
+                
+                // For each garden assigned to the user, fetch the data
+                for gardenNumber in 0..<numberOfGardens {
                     
-                    self.readingArray = result as? [Reading] ?? []
-                    //print("Reading Array: \(self.readingArray)")
-                    
-                    let formatter = NSDateFormatter()
-                    formatter.dateStyle = NSDateFormatterStyle.ShortStyle
-                    formatter.timeStyle = NSDateFormatterStyle.ShortStyle
-                    self.readingCreatedAt = formatter.stringFromDate(self.readingArray[0].createdAt!)
-                    
-                    
-                    self.currentReadings = self.readingArray[0].readings
-                    //print("Current Readings are: \(self.currentReadings)")
-                    
-                    currentReadingTypes = []
-                    self.currentReadingValues = []
-                    for i in 0..<self.currentReadings.count {
-                        for j in 0..<self.currentReadings[i].count {
-                            currentReadingTypes.append("\((self.currentGarden?.pName[i])!)\(j+1)")
-                            //Revert if fails - self.currentReadingTypes.append((self.currentGarden?.pName[i])!)
-                            self.currentReadingValues.append(self.currentReadings[i][j])
+                    ParseHelper.readingsRequestForCurrentUser (self.currentUserGardens, index: gardenNumber) { (result: [PFObject]?, error: NSError?) -> Void in
+                        
+                        self.readingArray = result as? [Reading] ?? []
+                        //print("Reading Array: \(self.readingArray)")
+                        
+                        // Format the date information and assign to the global variable
+                        let formatter = NSDateFormatter()
+                        formatter.dateStyle = NSDateFormatterStyle.ShortStyle
+                        formatter.timeStyle = NSDateFormatterStyle.ShortStyle
+                        readingCreatedAt.append(formatter.stringFromDate(self.readingArray[0].createdAt!))
+                        
+                        // Take the first reading to make the display table
+                        self.currentReadings = self.readingArray[0].readings
+                        
+                        currentReadingTypes = []
+                        customReadingTypes = []
+                        self.currentReadingValues = []
+                        for i in 0..<self.currentReadings.count {
+                            for j in 0..<self.currentReadings[i].count {
+                                currentReadingTypes.append("\((self.currentUserGardens[gardenNumber].pType[i]))\(j+1)")
+                                customReadingTypes.append("\((self.currentUserGardens[gardenNumber].pName[i]))\(j+1)")
+                                //Revert if fails - currentReadingTypes.append("\((self.currentGarden?.pName[i])!)\(j+1)")
+                                self.currentReadingValues.append(self.currentReadings[i][j])
+                            }
                         }
+                        
+                        // Avoid index out of range errors and assign the appropriate number of rows per garden
+                        if rowCount.count <= gardenNumber {
+                            rowCount.append(self.currentReadingValues.count)
+                        }
+                        else {
+                            rowCount[gardenNumber] = self.currentReadingValues.count
+                        }
+                        
+                        // printing information for debugging
+                        //print("Garden number: \(gardenNumber)")
+                        //print("Row count array: \(rowCount)")
+                        //print("Current count of reading values: \(self.currentReadingValues.count)")
+                        
+
+                        readingImageTypes.append(currentReadingTypes)
+                        mainReadingTypes.append(customReadingTypes)
+                        mainReadingValues.append(self.currentReadingValues)
+                        gardenNames.append(String(self.currentUserGardens[gardenNumber]["gardenName"]))
+                        
+                        if (gardenNumber + 1 == numberOfGardens) {
+                            sleep(1)
+                            self.tableView.reloadData()
+                            // print(mainReadingTypes)
+                            // print(readingImageTypes)
+                        }
+                        
                     }
-                    
-                    rowCount = (self.currentReadingValues.count)
-                    //print("The types are: \(currentReadingTypes)")
-                    //print("The values are: \(self.currentReadingValues)")
-                    
-                    if NSUserDefaults.standardUserDefaults().objectForKey("customReadingTypes") != nil{
-                        customReadingTypes = NSUserDefaults.standardUserDefaults().objectForKey("customReadingTypes") as! [String]
-                    } else {
-                        customReadingTypes = currentReadingTypes
-                    }
-                    
-                    self.tableView.reloadData()
                 }
+
                 
+            // If we didn't have any returned Gardens, set up the "dummy garden"
             } else {
                 let dummyGarden = Garden()
                 dummyGarden.gardenName = "Example Garden"
@@ -112,15 +153,19 @@ class ReadingsViewController: UIViewController {  //, TimelineComponentTarget {
                 dummyGarden.pName = ["AirTemp","Humidity","WaterTemp","Sun","Leaks","pH"]
                 
                 
-                self.currentGarden = dummyGarden
+                self.currentUserGardens[0] = dummyGarden
                 
                 
                 self.currentReadings = [[85.0, 82.0], [95.0], [60.0, 64.0, 62.0], [15.0], [1.0], [5.0]]
-                currentReadingTypes = ["AirTemp1", "AirTemp2", "Humidity1", "WaterTemp1", "WaterTemp2", "WaterTemp3", "Sun1", "Leaks1", "pH1"]
                 self.currentReadingValues = [85.0, 82.0, 95.0, 60.0, 64.0, 62.0, 15.0, 1.0, 5.0]
+                mainReadingValues[0] = self.currentReadingValues
+                
+                currentReadingTypes = ["AirTemp1", "AirTemp2", "Humidity1", "WaterTemp1", "WaterTemp2", "WaterTemp3", "Sun1", "Leaks1", "pH1"]
                 customReadingTypes = currentReadingTypes
-                self.readingCreatedAt = "a long time ago..."
-                rowCount = (self.currentReadingValues.count)
+                mainReadingTypes[0] = customReadingTypes
+                
+                readingCreatedAt.append("a long time ago...")
+                rowCount[0] = (self.currentReadingValues.count)
                 
                 self.tableView.reloadData()
             }
@@ -162,11 +207,9 @@ class ReadingsViewController: UIViewController {  //, TimelineComponentTarget {
             //print("Path = \(path)")
         
             chartViewController.readingArray = self.readingArray
-            //Revert if fails - chartViewController.readingLabels = (self.currentGarden?.pName)!
             chartViewController.readingLabels = customReadingTypes
             chartViewController.selectedReading = self.selectedReading
             chartViewController.selectedReadingIndex = self.selectedReadingIndex
-            print("Segue selected Reading index is: \(chartViewController.selectedReadingIndex)")
         }
 
     }
@@ -176,35 +219,67 @@ class ReadingsViewController: UIViewController {  //, TimelineComponentTarget {
 
 extension ReadingsViewController: UITableViewDataSource {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // 1
-        //return readings.count
-        //return (self.currentGarden?.pName.count)!
-        print("Row count = \(rowCount)")
-        return rowCount
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return currentUserGardens.count
     }
     
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return rowCount[section]
+    }
+    
+
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // 2
         let cell = tableView.dequeueReusableCellWithIdentifier("Reading2Cell") as! ReadingTable2ViewCell
-        print("Table view cell code reached")
-        let readingType = currentReadingTypes[indexPath.row]
-        var customReadingType = ""
-        if customReadingTypes.count <= indexPath.row {
-            customReadingType = readingType
+        
+        var readingType = ""
+        if (indexPath.section < readingImageTypes.count) {
+            readingType = readingImageTypes[indexPath.section][indexPath.row]
         } else {
-            customReadingType = customReadingTypes[indexPath.row]
+            readingType = "Waiting..."
         }
         
+        var customReadingType = [String:String]()
+        
+        // This should check for a dictionary lookup into the 'pNameDict' item to see if a custom label has been defined
+        
+        let query = Garden.query()
+        //gardenQuery!.whereKey("userID", equalTo: PFUser.currentUser()!)
+        query!.whereKey("gardenName", equalTo: self.currentUserGardens[indexPath.section]["gardenName"])
+        query!.getFirstObjectInBackgroundWithBlock( { (result: PFObject?, error: NSError?) -> Void in
+            if error != nil {
+                print("Error on query for garden: \(error)")
+                print(String(self.currentUserGardens[indexPath.section]))
+                cell.reading2Label.text = String(mainReadingTypes[indexPath.section][indexPath.row])
+            } else {
+                let returnedGarden = result as! Garden
+                if (returnedGarden["pNameDict"] != nil) {
+                    customReadingType = returnedGarden["pNameDict"] as! [String : String]
+                    if let customName = customReadingType[mainReadingTypes[indexPath.section][indexPath.row]] {
+                        cell.reading2Label.text = String(customName)
+                        mainReadingTypes[indexPath.section][indexPath.row] = customName
+                    } else {
+                        cell.reading2Label.text = String(mainReadingTypes[indexPath.section][indexPath.row])
+                    }
+                } else {
+                    cell.reading2Label.text = String(mainReadingTypes[indexPath.section][indexPath.row])
+                }
+            }
+        })
+
         // This hack makes the image displaying work for up to 9 sensors of the same type (e.g. only one integer digit after the type)
         let imageType = String(UTF8String: readingType)!
         cell.readingType2ImageView.image = UIImage(named: imageType[Range(start: imageType.startIndex, end: imageType.endIndex.advancedBy(-1))])
         // Revert if fail - cell.readingType2ImageView.image = UIImage(named: String(UTF8String: readingType)!)
         
         
-        cell.reading2Label.text = String(customReadingType)
-        cell.value2Label.text = String(self.currentReadingValues[indexPath.row])
-        print("Current reading is \(String(readingType)) and the value is \(String(self.currentReadingValues[indexPath.row]))")
+        
+        //cell.value2Label.text = String(self.currentReadingValues[indexPath.row])
+        if (indexPath.section < mainReadingValues.count) {
+            cell.value2Label.text = String(mainReadingValues[indexPath.section][indexPath.row])
+        } else {
+            cell.value2Label.text = ""
+        }
+        //print("Current reading is \(String(readingType)) and the value is \(String(self.currentReadingValues[indexPath.row]))")
         return cell
         
     }
@@ -212,6 +287,8 @@ extension ReadingsViewController: UITableViewDataSource {
 }
 
 extension ReadingsViewController: UITableViewDelegate {
+    
+    // Obviously need to fix this functionality to support the multiple gardens displayed on main screen
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("You selected cell #\(indexPath.row)!")
@@ -231,9 +308,18 @@ extension ReadingsViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerCell = tableView.dequeueReusableCellWithIdentifier("ReadingHeader") as! ReadingTableHeader
         
-        headerCell.gardenName.text = self.currentGarden?.gardenName
+        //headerCell.gardenName.text = self.currentUserGardens[section].gardenName
+        if (section < gardenNames.count) {
+            headerCell.gardenName.text = gardenNames[section]
+        } else {
+            headerCell.gardenName.text = "Loading..."
+        }
         
-        headerCell.createdAt.text = "Last reading at \(self.readingCreatedAt)"
+        if (section < readingCreatedAt.count) {
+            headerCell.createdAt.text = "Last reading at \(readingCreatedAt[section])"
+        } else {
+            headerCell.createdAt.text = "Loading..."
+        }
         
         return headerCell
     }

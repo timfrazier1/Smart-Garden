@@ -28,7 +28,7 @@
         <!--ReadingNameSetttings-->
         <scene sceneID="CKe-xS-gD0">
             <objects>
-                <viewController id="e0n-eO-aZw" userLabel="ReadingNameSetttings" customClass="SettingsViewController" customModule="Smart_Garden" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Custom Reading Names" id="e0n-eO-aZw" userLabel="ReadingNameSetttings" customClass="SettingsViewController" customModule="Smart_Garden" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0bX-d3-IXY"/>
                         <viewControllerLayoutGuide type="bottom" id="YYv-11-6Eq"/>
@@ -37,8 +37,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iYp-uS-AfJ">
-                                <rect key="frame" x="20" y="20" width="560" height="487"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iYp-uS-AfJ">
+                                <rect key="frame" x="20" y="0.0" width="560" height="507"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingCell" id="lMK-gt-VKR" customClass="SettingTableViewCell" customModule="Smart_Garden" customModuleProvider="target">
@@ -75,6 +75,54 @@
                                             <outlet property="userDefinedType" destination="wSI-qw-TXK" id="vXk-cK-aNv"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingHeaderCell" rowHeight="105" id="bOp-jO-ZVM" customClass="SettingTableHeader" customModule="Smart_Garden" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="136" width="560" height="105"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bOp-jO-ZVM" id="wdb-X8-Zh6">
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="104.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="OjC-UZ-6D4">
+                                                    <rect key="frame" x="8" y="30" width="45" height="45"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="AwY-Nk-Nya"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="HTK-D7-ccf"/>
+                                                        <constraint firstAttribute="height" constant="45" id="MB8-3P-MMh" userLabel="height = 45"/>
+                                                        <constraint firstAttribute="width" constant="45" id="tLe-Yz-Jka" userLabel="width = 45"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="gardenName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="pwN-5W-avt">
+                                                    <rect key="frame" x="180" y="11" width="200" height="38.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="29N-pS-geQ"/>
+                                                        <constraint firstAttribute="height" constant="38.5" id="6sv-A6-KQP"/>
+                                                        <constraint firstAttribute="width" constant="200" id="9nq-bg-lNE"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="createdAt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6o-4a-RaF">
+                                                    <rect key="frame" x="242" y="54" width="75" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="pwN-5W-avt" firstAttribute="centerX" secondItem="wdb-X8-Zh6" secondAttribute="centerX" id="02N-qK-YvA"/>
+                                                <constraint firstItem="y6o-4a-RaF" firstAttribute="centerX" secondItem="wdb-X8-Zh6" secondAttribute="centerX" id="KX2-O6-UXO"/>
+                                                <constraint firstItem="OjC-UZ-6D4" firstAttribute="leading" secondItem="wdb-X8-Zh6" secondAttribute="leadingMargin" id="Lw1-h8-5AJ"/>
+                                                <constraint firstItem="OjC-UZ-6D4" firstAttribute="centerY" secondItem="wdb-X8-Zh6" secondAttribute="centerY" id="Zdi-Pf-yZE"/>
+                                                <constraint firstItem="y6o-4a-RaF" firstAttribute="top" secondItem="pwN-5W-avt" secondAttribute="bottom" constant="4.5" id="iUx-dC-hGf"/>
+                                                <constraint firstItem="pwN-5W-avt" firstAttribute="top" secondItem="wdb-X8-Zh6" secondAttribute="topMargin" constant="3" id="nLp-0M-rrx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="createdAt" destination="y6o-4a-RaF" id="Ttn-7u-5Xg"/>
+                                            <outlet property="gardenName" destination="pwN-5W-avt" id="Ohs-Zm-n8d"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="e0n-eO-aZw" id="WK5-is-7Fa"/>
@@ -100,10 +148,19 @@
                             <constraint firstItem="YYv-11-6Eq" firstAttribute="top" secondItem="JEJ-GO-Xfa" secondAttribute="bottom" id="8hb-LA-cUb"/>
                             <constraint firstItem="iYp-uS-AfJ" firstAttribute="leading" secondItem="5rr-eZ-NXF" secondAttribute="leadingMargin" id="BZ2-kd-5Hg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iYp-uS-AfJ" secondAttribute="trailing" id="GGY-4y-bO0"/>
+                            <constraint firstItem="iYp-uS-AfJ" firstAttribute="top" secondItem="5rr-eZ-NXF" secondAttribute="topMargin" id="J01-7V-FS9"/>
+                            <constraint firstItem="iYp-uS-AfJ" firstAttribute="leading" secondItem="5rr-eZ-NXF" secondAttribute="leadingMargin" id="KN1-yt-Trl"/>
+                            <constraint firstItem="iYp-uS-AfJ" firstAttribute="trailing" secondItem="5rr-eZ-NXF" secondAttribute="trailingMargin" id="Ra0-zn-24K"/>
                             <constraint firstItem="iYp-uS-AfJ" firstAttribute="top" secondItem="0bX-d3-IXY" secondAttribute="bottom" id="ZKO-8C-RVX"/>
+                            <constraint firstItem="JEJ-GO-Xfa" firstAttribute="top" secondItem="iYp-uS-AfJ" secondAttribute="bottom" id="hch-SF-zAl"/>
                             <constraint firstItem="JEJ-GO-Xfa" firstAttribute="top" secondItem="iYp-uS-AfJ" secondAttribute="bottom" id="mKp-Sv-8ZE"/>
                             <constraint firstItem="JEJ-GO-Xfa" firstAttribute="leading" secondItem="5rr-eZ-NXF" secondAttribute="leadingMargin" constant="-20" id="mpB-gz-jJR"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ZKO-8C-RVX"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Setttings" image="Settings" id="aPj-5w-s9s"/>
                     <connections>
@@ -113,6 +170,80 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OOM-4B-aYu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2248" y="9"/>
+        </scene>
+        <!--Claim Garden-->
+        <scene sceneID="2nb-6v-bgz">
+            <objects>
+                <viewController id="fWh-S9-Vb9" userLabel="Claim Garden" customClass="ClaimGardenViewController" customModule="Smart_Garden" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gA0-aO-vZg"/>
+                        <viewControllerLayoutGuide type="bottom" id="gv1-gD-W4W"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="r8V-4j-1ZX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4ra-rx-aaP">
+                                <rect key="frame" x="180" y="285" width="240" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="hSf-0Q-1ns"/>
+                                    <constraint firstAttribute="height" constant="30" id="s4V-bP-rNV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Your Garden ID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0o-35-NVO">
+                                <rect key="frame" x="188" y="219" width="225" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="225" id="a8Y-Ys-JX9"/>
+                                    <constraint firstAttribute="height" constant="30" id="xdo-de-PqC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This should be on a sticker on the outside of your garden" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOT-Mz-AlW">
+                                <rect key="frame" x="120" y="257" width="360" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="CvK-TL-gE0"/>
+                                    <constraint firstAttribute="width" constant="360" id="sVd-nf-MFs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFN-q8-Kr6">
+                                <rect key="frame" x="230" y="323" width="140" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="1z4-Mn-EgE"/>
+                                    <constraint firstAttribute="width" constant="140" id="WCW-c0-dcq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Claim Garden"/>
+                                <connections>
+                                    <action selector="claimGardenButtonTapped:" destination="fWh-S9-Vb9" eventType="touchUpInside" id="cze-ln-0od"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hFN-q8-Kr6" firstAttribute="top" secondItem="4ra-rx-aaP" secondAttribute="bottom" constant="8" id="0b4-6T-jiq"/>
+                            <constraint firstItem="4ra-rx-aaP" firstAttribute="centerY" secondItem="r8V-4j-1ZX" secondAttribute="centerY" id="4RF-mk-V1O"/>
+                            <constraint firstItem="4ra-rx-aaP" firstAttribute="top" secondItem="n0o-35-NVO" secondAttribute="bottom" constant="36" id="Roy-g5-wFK"/>
+                            <constraint firstItem="4ra-rx-aaP" firstAttribute="centerX" secondItem="r8V-4j-1ZX" secondAttribute="centerX" id="ayb-yG-cLg"/>
+                            <constraint firstItem="n0o-35-NVO" firstAttribute="centerX" secondItem="r8V-4j-1ZX" secondAttribute="centerX" id="lDu-wm-kXJ"/>
+                            <constraint firstItem="hOT-Mz-AlW" firstAttribute="centerX" secondItem="r8V-4j-1ZX" secondAttribute="centerX" id="mVI-Mu-DbF"/>
+                            <constraint firstItem="hOT-Mz-AlW" firstAttribute="top" secondItem="4ra-rx-aaP" secondAttribute="bottom" constant="-58" id="tAM-Qv-FWJ"/>
+                            <constraint firstItem="hFN-q8-Kr6" firstAttribute="centerX" secondItem="r8V-4j-1ZX" secondAttribute="centerX" id="xcX-wg-1rL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="gardenIDtextField" destination="4ra-rx-aaP" id="ZWw-hX-wvt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QcS-7j-n3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2232" y="782"/>
         </scene>
         <!--Main Settings-->
         <scene sceneID="lf9-c8-IBn">
@@ -135,7 +266,7 @@
                             </items>
                         </toolbar>
                         <sections>
-                            <tableViewSection headerTitle="Section-1" id="ijd-vp-4DJ">
+                            <tableViewSection headerTitle="Basic Settings" id="ijd-vp-4DJ">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="TxK-RA-NWd" style="IBUITableViewCellStyleDefault" id="zcP-WO-wYh">
                                         <rect key="frame" x="0.0" y="92" width="600" height="44"/>
@@ -148,11 +279,15 @@
                                                     <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <segue destination="e0n-eO-aZw" kind="show" identifier="customReadingNamesSegue" id="2OD-rb-poX"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="Dac-dy-sAL" style="IBUITableViewCellStyleDefault" id="DEr-n2-IoY">
                                         <rect key="frame" x="0.0" y="136" width="600" height="44"/>
@@ -178,19 +313,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rEI-hl-dI3">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Claim a Garden" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rEI-hl-dI3">
                                                     <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="fWh-S9-Vb9" kind="show" id="5wA-zW-l4C"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Section-2" id="7HL-b4-KXJ">
+                            <tableViewSection headerTitle="Subscription Settings" id="7HL-b4-KXJ">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="FcX-iu-aHN" style="IBUITableViewCellStyleDefault" id="jAT-bf-dj2">
                                         <rect key="frame" x="0.0" y="252" width="600" height="44"/>
@@ -254,7 +392,6 @@
                     <navigationItem key="navigationItem" id="G6B-Qz-pWF"/>
                     <connections>
                         <outlet property="logoutButton" destination="iX5-uh-YgC" id="JdW-1L-2CM"/>
-                        <segue destination="e0n-eO-aZw" kind="show" identifier="customReadingNamesSegue" id="bNm-f2-fGY"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ih9-1I-yvl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -304,13 +441,13 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIl-8L-ADF">
-                                            <rect key="frame" x="469" y="17" width="82" height="42.5"/>
+                                            <rect key="frame" x="270.5" y="17" width="280.5" height="42.5"/>
                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="35"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reading_name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aho-8J-WLo">
-                                            <rect key="frame" x="80" y="19.5" width="180.5" height="36"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Reading_name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Aho-8J-WLo">
+                                            <rect key="frame" x="80" y="19" width="180.5" height="36"/>
                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="30"/>
                                             <color key="textColor" red="0.99408143940000004" green="0.99408143940000004" blue="0.99408143940000004" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -322,6 +459,7 @@
                                         <constraint firstItem="Aho-8J-WLo" firstAttribute="leading" secondItem="7fV-tt-vPM" secondAttribute="trailing" constant="15" id="K3K-SL-nIc"/>
                                         <constraint firstItem="oIl-8L-ADF" firstAttribute="centerY" secondItem="VYR-dR-T6h" secondAttribute="centerY" id="dwb-bs-P5U"/>
                                         <constraint firstItem="Aho-8J-WLo" firstAttribute="centerY" secondItem="VYR-dR-T6h" secondAttribute="centerY" id="igE-4c-lgO"/>
+                                        <constraint firstItem="oIl-8L-ADF" firstAttribute="leading" secondItem="Aho-8J-WLo" secondAttribute="trailing" constant="10" id="qmm-fU-0rE"/>
                                         <constraint firstItem="7fV-tt-vPM" firstAttribute="leading" secondItem="VYR-dR-T6h" secondAttribute="leadingMargin" constant="-8" id="sip-B8-HpR"/>
                                     </constraints>
                                 </tableViewCellContentView>

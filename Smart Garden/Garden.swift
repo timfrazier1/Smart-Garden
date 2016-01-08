@@ -19,6 +19,7 @@ class Garden : PFObject, PFSubclassing {
     @NSManaged var userID: PFUser?
     @NSManaged var userArray: [PFUser]?
     @NSManaged var pName: [String]
+    @NSManaged var pNameDict: [String:String]
     @NSManaged var pType: [String]
     
     

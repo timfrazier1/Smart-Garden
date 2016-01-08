@@ -17,14 +17,16 @@ class ParseHelper {
         //gardenQuery!.whereKey("userID", equalTo: PFUser.currentUser()!)
         gardenQuery!.whereKey("userArray", equalTo: PFUser.currentUser()!)
         gardenQuery!.includeKey("pName")
+        gardenQuery!.includeKey("pType")
+        //gardenQuery!.includeKey("pNameDict")
         
         gardenQuery!.findObjectsInBackgroundWithBlock(completionBlock)
     }
     // 2
-    static func readingsRequestForCurrentUser(currentGarden: Garden, range: Range<Int>, completionBlock: PFQueryArrayResultBlock) {
+    static func readingsRequestForCurrentUser(gardenArray: [Garden], index: Int, completionBlock: PFQueryArrayResultBlock) {
             
         let readingsQuery = Reading.query()
-        readingsQuery!.whereKey("gardenID", equalTo: currentGarden)
+        readingsQuery!.whereKey("gardenID", equalTo: gardenArray[index])
         
             
         readingsQuery!.includeKey("readings")

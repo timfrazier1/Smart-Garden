@@ -119,12 +119,19 @@ class MainSettingsTableViewController: UITableViewController, PFLogInViewControl
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        return 3
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        performSegueWithIdentifier("customReadingNamesSegue", sender: self)
+    /*
+        if (indexPath.row == 0) {
+            performSegueWithIdentifier("customReadingNamesSegue", sender: self)
+        }
+    
+        if (indexPath.row == 2) {
+            performSegueWithIdentifier("claimGardenSegue", sender: self)
+        }
+        */
     }
     
     
