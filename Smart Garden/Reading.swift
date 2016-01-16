@@ -14,7 +14,7 @@ class Reading : PFObject, PFSubclassing {
     
     // 2
     @NSManaged var gardenID: PFObject?
-    @NSManaged var readings: Array<Array<Double>>
+    @NSManaged var readings: Array<Double>
     
     
     //MARK: PFSubclassing Protocol

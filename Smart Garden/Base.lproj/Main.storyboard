@@ -38,7 +38,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iYp-uS-AfJ">
-                                <rect key="frame" x="20" y="0.0" width="560" height="507"/>
+                                <rect key="frame" x="20" y="0.0" width="560" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingCell" id="lMK-gt-VKR" customClass="SettingTableViewCell" customModule="Smart_Garden" customModuleProvider="target">
@@ -51,7 +51,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="readingTypeLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vjP-5a-GkH">
                                                     <rect key="frame" x="8" y="11" width="136.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wSI-qw-TXK">
@@ -73,6 +73,7 @@
                                         <connections>
                                             <outlet property="readingTypeLabel" destination="vjP-5a-GkH" id="Uxv-2y-CPY"/>
                                             <outlet property="userDefinedType" destination="wSI-qw-TXK" id="vXk-cK-aNv"/>
+                                            <segue destination="n4n-aa-0A4" kind="show" id="33i-ky-ndO"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingHeaderCell" rowHeight="105" id="bOp-jO-ZVM" customClass="SettingTableHeader" customModule="Smart_Garden" customModuleProvider="target">
@@ -99,13 +100,13 @@
                                                         <constraint firstAttribute="width" constant="200" id="9nq-bg-lNE"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="createdAt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6o-4a-RaF">
                                                     <rect key="frame" x="242" y="54" width="75" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -129,32 +130,16 @@
                                     <outlet property="delegate" destination="e0n-eO-aZw" id="NZW-az-Zql"/>
                                 </connections>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JEJ-GO-Xfa">
-                                <rect key="frame" x="0.0" y="507" width="600" height="44"/>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="qcC-kt-LhC"/>
-                                    <barButtonItem systemItem="save" id="4I4-Dr-Uum">
-                                        <connections>
-                                            <action selector="saveLabels:" destination="e0n-eO-aZw" id="Tob-RL-OE6"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="10" style="plain" systemItem="fixedSpace" id="7dy-kg-Zjn"/>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="JEJ-GO-Xfa" secondAttribute="trailing" constant="-20" id="3E8-R9-V39"/>
-                            <constraint firstItem="YYv-11-6Eq" firstAttribute="top" secondItem="JEJ-GO-Xfa" secondAttribute="bottom" id="8hb-LA-cUb"/>
                             <constraint firstItem="iYp-uS-AfJ" firstAttribute="leading" secondItem="5rr-eZ-NXF" secondAttribute="leadingMargin" id="BZ2-kd-5Hg"/>
+                            <constraint firstItem="YYv-11-6Eq" firstAttribute="top" secondItem="iYp-uS-AfJ" secondAttribute="bottom" id="Chy-d7-26J"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iYp-uS-AfJ" secondAttribute="trailing" id="GGY-4y-bO0"/>
                             <constraint firstItem="iYp-uS-AfJ" firstAttribute="top" secondItem="5rr-eZ-NXF" secondAttribute="topMargin" id="J01-7V-FS9"/>
                             <constraint firstItem="iYp-uS-AfJ" firstAttribute="leading" secondItem="5rr-eZ-NXF" secondAttribute="leadingMargin" id="KN1-yt-Trl"/>
                             <constraint firstItem="iYp-uS-AfJ" firstAttribute="trailing" secondItem="5rr-eZ-NXF" secondAttribute="trailingMargin" id="Ra0-zn-24K"/>
                             <constraint firstItem="iYp-uS-AfJ" firstAttribute="top" secondItem="0bX-d3-IXY" secondAttribute="bottom" id="ZKO-8C-RVX"/>
-                            <constraint firstItem="JEJ-GO-Xfa" firstAttribute="top" secondItem="iYp-uS-AfJ" secondAttribute="bottom" id="hch-SF-zAl"/>
-                            <constraint firstItem="JEJ-GO-Xfa" firstAttribute="top" secondItem="iYp-uS-AfJ" secondAttribute="bottom" id="mKp-Sv-8ZE"/>
-                            <constraint firstItem="JEJ-GO-Xfa" firstAttribute="leading" secondItem="5rr-eZ-NXF" secondAttribute="leadingMargin" constant="-20" id="mpB-gz-jJR"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -170,6 +155,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OOM-4B-aYu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2248" y="9"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="xI7-5T-clK">
+            <objects>
+                <viewController id="n4n-aa-0A4" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cNy-NB-RF7"/>
+                        <viewControllerLayoutGuide type="bottom" id="Cfc-a5-Xa9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aAe-RG-zeH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JEJ-GO-Xfa">
+                                <rect key="frame" x="0.0" y="507" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="qcC-kt-LhC"/>
+                                    <barButtonItem systemItem="save" id="4I4-Dr-Uum">
+                                        <connections>
+                                            <action selector="saveLabels:" destination="e0n-eO-aZw" id="Tob-RL-OE6"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="10" style="plain" systemItem="fixedSpace" id="7dy-kg-Zjn"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gng-8k-pFM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2946" y="9"/>
         </scene>
         <!--Claim Garden-->
         <scene sceneID="2nb-6v-bgz">
@@ -199,7 +216,7 @@
                                     <constraint firstAttribute="height" constant="30" id="xdo-de-PqC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This should be on a sticker on the outside of your garden" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOT-Mz-AlW">
@@ -209,7 +226,7 @@
                                     <constraint firstAttribute="width" constant="360" id="sVd-nf-MFs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFN-q8-Kr6">
@@ -300,7 +317,7 @@
                                                     <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -341,7 +358,7 @@
                                                     <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -358,7 +375,7 @@
                                                     <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -375,7 +392,7 @@
                                                     <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -490,13 +507,13 @@
                                                 <constraint firstAttribute="width" constant="200" id="fWv-3t-TtX"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="createdAt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwX-Xq-ynq">
                                             <rect key="frame" x="263" y="51" width="75" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>

@@ -23,7 +23,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func saveLabels(sender: AnyObject) {
         print("Main save button pushed")
-        
+     /*
         for i in 0..<currentUserGardens.count {
             for j in 0..<readingImageTypes[i].count {
                 // i is the garden number, j is the row number
@@ -41,6 +41,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
+        
+        */
         print(mainReadingTypes)
         print(self.userModifiedType)
         

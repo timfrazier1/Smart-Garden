@@ -15,44 +15,28 @@ class HistoryGraphViewController: UIViewController {
     @IBOutlet weak var lineChartView: LineChartView!
     
     var readingLabels: [String] = []
-    var readingArray: [Reading] = []
     var selectedReading: String = ""
     var selectedReadingIndex: Int = 0
+    var selectedGardenIndex: Int = 0
     var chartReadings: [Double] = []
     var chartTimes: [String] = []
-    var compiledReadingArray: [Double] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*
-        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
-        let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
-        
-*/
-        //print("Reading Array is: \(readingArray)")
+
         chartReadings = []
         chartTimes = []
 
         print("Selected reading index is: \(selectedReadingIndex)")
+        print("Selected garden index is: \(selectedGardenIndex)")
         
         
-        for i in 0..<readingArray.count {  // For each reading row in the Parse Database
-            compiledReadingArray = [] //Reset the array
-            
-            for j in 0..<readingArray[i].readings.count {  // For each of the individual reading arrays
-                for k in 0..<readingArray[i].readings[j].count {  // For each individual reading within the individual reading arrays
-                    compiledReadingArray.append(Double(readingArray[i].readings[j][k]))
-                }
-            }
-            // After compiling a new "compiledReadingArray", then append the correct item for the chart readings:
-            chartReadings.append(compiledReadingArray[self.selectedReadingIndex])
-            // Revert if fails - chartReadings.append(Double(readingArray[i].readings[selectedReadingIndex][0]))
+        for i in 0..<readingArrayArray[selectedGardenIndex].count {  // For each row in the array of readings for the selected garden in the Parse Database
 
-                // Currently only displays readings for the first sensor in a group!!!!
-                // Also need to limit the number of readings to gather - ie. get last 10 readings or the total readingArray.count, whichever is less
-           
+            chartReadings.append(readingArrayArray[selectedGardenIndex][i].readings[self.selectedReadingIndex])
+            
             /***CONVERT FROM NSDate to String ****/
-            let date = readingArray[i].createdAt! //get the time, in this case the time an object was created.
+            let date = readingArrayArray[selectedGardenIndex][i].createdAt! //get the time, in this case the time an object was created.
             //format date
             let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "hh:mm" //format style. Browse online to get a format that fits your needs.
@@ -103,7 +87,7 @@ class HistoryGraphViewController: UIViewController {
         lineChartView.backgroundColor = UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 1)
         //lineChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         lineChartView.data = chartData
-        lineChartView.descriptionText = "10 Most recent \(label) readings"
+        lineChartView.descriptionText = "10 Most recent \(label) readings for \(gardenNames[selectedGardenIndex])"
         
     }
 
