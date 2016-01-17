@@ -11,6 +11,8 @@
 		6643F68B1C36E29800840364 /* MainSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6643F68A1C36E29800840364 /* MainSettingsTableViewController.swift */; };
 		6643F68F1C371CF900840364 /* ClaimGardenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6643F68E1C371CF900840364 /* ClaimGardenViewController.swift */; };
 		6643F6911C383F4F00840364 /* SettingTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6643F6901C383F4F00840364 /* SettingTableHeader.swift */; };
+		6644CA841C4AF61D00B5B84B /* ReadingNamesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6644CA831C4AF61D00B5B84B /* ReadingNamesTableViewController.swift */; };
+		6644CA881C4AFE7A00B5B84B /* ReadingNamesDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6644CA871C4AFE7A00B5B84B /* ReadingNamesDetailTableViewController.swift */; };
 		668B95511BFFF8860038DF98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668B95501BFFF8860038DF98 /* AppDelegate.swift */; };
 		668B95561BFFF8860038DF98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 668B95541BFFF8860038DF98 /* Main.storyboard */; };
 		668B95581BFFF8860038DF98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 668B95571BFFF8860038DF98 /* Assets.xcassets */; };
@@ -82,6 +84,8 @@
 		6643F68A1C36E29800840364 /* MainSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSettingsTableViewController.swift; sourceTree = "<group>"; };
 		6643F68E1C371CF900840364 /* ClaimGardenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClaimGardenViewController.swift; sourceTree = "<group>"; };
 		6643F6901C383F4F00840364 /* SettingTableHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableHeader.swift; sourceTree = "<group>"; };
+		6644CA831C4AF61D00B5B84B /* ReadingNamesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingNamesTableViewController.swift; sourceTree = "<group>"; };
+		6644CA871C4AFE7A00B5B84B /* ReadingNamesDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReadingNamesDetailTableViewController.swift; path = "View Controllers/ReadingNamesDetailTableViewController.swift"; sourceTree = "<group>"; };
 		668B954D1BFFF8860038DF98 /* Smart Garden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Garden.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		668B95501BFFF8860038DF98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		668B95551BFFF8860038DF98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -169,6 +173,8 @@
 				668B956C1C00048A0038DF98 /* EventsViewController.swift */,
 				668B956E1C00049A0038DF98 /* AlarmsViewController.swift */,
 				668B95701C0004AB0038DF98 /* ReadingsSettingsViewController.swift */,
+				6644CA831C4AF61D00B5B84B /* ReadingNamesTableViewController.swift */,
+				6644CA871C4AFE7A00B5B84B /* ReadingNamesDetailTableViewController.swift */,
 				668B95C91C0BEAB30038DF98 /* HistoryGraphViewController.swift */,
 				668B95CD1C0BF3F30038DF98 /* ReadingsViewController.swift */,
 				6643F68A1C36E29800840364 /* MainSettingsTableViewController.swift */,
@@ -383,6 +389,7 @@
 				668B95761C0007BB0038DF98 /* Garden.swift in Sources */,
 				668B95691BFFFC570038DF98 /* ErrorHandling.swift in Sources */,
 				668B96E61C1917FA0038DF98 /* SettingTableViewCell.swift in Sources */,
+				6644CA881C4AFE7A00B5B84B /* ReadingNamesDetailTableViewController.swift in Sources */,
 				6643F6911C383F4F00840364 /* SettingTableHeader.swift in Sources */,
 				668B95741C0005870038DF98 /* Reading.swift in Sources */,
 				6643F68B1C36E29800840364 /* MainSettingsTableViewController.swift in Sources */,
@@ -394,6 +401,7 @@
 				66D448581C337FE900F7CE60 /* ParseLoginHelper.swift in Sources */,
 				668B95711C0004AB0038DF98 /* ReadingsSettingsViewController.swift in Sources */,
 				668B95991C064FDC0038DF98 /* ParseHelper.swift in Sources */,
+				6644CA841C4AF61D00B5B84B /* ReadingNamesTableViewController.swift in Sources */,
 				668B95CE1C0BF3F30038DF98 /* ReadingsViewController.swift in Sources */,
 				668B95D01C0BF6FE0038DF98 /* ReadingTable2ViewCell.swift in Sources */,
 			);

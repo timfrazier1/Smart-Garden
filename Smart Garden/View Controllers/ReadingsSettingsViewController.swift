@@ -21,35 +21,6 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var tableView: UITableView!
 
-    @IBAction func saveLabels(sender: AnyObject) {
-        print("Main save button pushed")
-     /*
-        for i in 0..<currentUserGardens.count {
-            for j in 0..<readingImageTypes[i].count {
-                // i is the garden number, j is the row number
-                
-                let indexPath = NSIndexPath(forRow: j, inSection: i)
-                if let cell = tableView.cellForRowAtIndexPath(indexPath) as! SettingTableViewCell? {
-                    if cell.userDefinedType.text! != "" {
-                        self.userModifiedType["\(mainReadingTypes[indexPath.section][indexPath.row])"] = cell.userDefinedType.text!
-                        currentUserGardens[indexPath.section]["pNameDict"] = self.userModifiedType
-                        currentUserGardens[indexPath.section].saveInBackground()
-                        mainReadingTypes[indexPath.section][indexPath.row] = cell.userDefinedType.text!
-                        print("Current Main Reading Types line : \(cell.userDefinedType.text!) for index path: \(indexPath.section).\(indexPath.row)")
-                    }
-                    
-                }
-            }
-        }
-        
-        */
-        print(mainReadingTypes)
-        print(self.userModifiedType)
-        
-        tableView.reloadData()
-        // Need to update with a better way of saving data here - but need to find reference to indexPath outside of a table view function?
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,14 +35,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                 self.currentUserGardens = result as? [Garden] ?? []
                 self.customReadingTypes = [[String:String]()]
                                 // Populate the user's defined settings with any that are present in Parse
-                for i in 0..<self.currentUserGardens.count {
-                    if self.customReadingTypes.count <= i {
-                        self.customReadingTypes.append(self.currentUserGardens[i]["pNameDict"] as! [String:String])
-                    } else {
-                        self.customReadingTypes[i] = self.currentUserGardens[i]["pNameDict"] as! [String:String]
-                    }
-                }
-                print("Custom reading types: \(self.customReadingTypes)")
+                                print("Custom reading types: \(self.customReadingTypes)")
             }
         }
     }
@@ -120,33 +84,15 @@ extension SettingsViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
         let cell = tableView.dequeueReusableCellWithIdentifier("SettingCell") as! SettingTableViewCell
-
+        
         cell.readingTypeLabel.text = readingImageTypes[indexPath.section][indexPath.row]
         //cell.userDefinedType.text = ""
         cell.userDefinedType.placeholder = mainReadingTypes[indexPath.section][indexPath.row]
         print(indexPath)
         print(cell.userDefinedType.text)
-  /*
-        if currentUserGardens.count > indexPath.section {
-            if (currentUserGardens[indexPath.section]["pNameDict"] != nil) {
-                let customReadingType = currentUserGardens[indexPath.section]["pNameDict"] as! [String : String]
-                if let customName = customReadingType[mainReadingTypes[indexPath.section][indexPath.row]] {
-                    cell.userDefinedType.text = String(customName)
-                }
-            }
-        }
-        
-        
-
-            if let customName = customReadingTypes[indexPath.section][mainReadingTypes[indexPath.section][indexPath.row]] {
-                print("Custom name variable: \(customName)")
-                print("IndexPath: \(indexPath.section).\(indexPath.row)")
-                cell.userDefinedType.text = customName
-            }
-*/
-            // Still display the default type label for user to compare
         return cell
-        
+
+                
     }
     
     
