@@ -14,5 +14,4 @@ class SettingTableViewCell: UITableViewCell {
     @IBOutlet weak var readingTypeLabel: UILabel!
     @IBOutlet weak var userDefinedType: UITextField!
     
-    
 }

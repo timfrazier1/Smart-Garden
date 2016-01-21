@@ -72,6 +72,8 @@ class ReadingsViewController: UIViewController {  //, TimelineComponentTarget {
     }
     
     func getGardenData() {
+        
+        
         ParseHelper.gardenRequestForCurrentUser { (result: [PFObject]?, error: NSError?) -> Void in
             self.currentUserGardens = result as? [Garden] ?? []
             
@@ -83,7 +85,7 @@ class ReadingsViewController: UIViewController {  //, TimelineComponentTarget {
                 mainReadingValues = []
                 readingCreatedAt = []
                 gardenNames = []
-                
+            
                 numberOfGardens = self.currentUserGardens.count
                 // For each garden assigned to the user, fetch the data
                 for gardenNumber in 0..<numberOfGardens {
@@ -117,7 +119,7 @@ class ReadingsViewController: UIViewController {  //, TimelineComponentTarget {
                                 
                             }
                         
-                            readingImageTypes.append(currentReadingTypes)
+                            
                             
                             
                         } else {
@@ -130,6 +132,8 @@ class ReadingsViewController: UIViewController {  //, TimelineComponentTarget {
                             readingCreatedAt.append("a long time ago...")
 
                         }
+                        
+                        readingImageTypes.append(currentReadingTypes)
                         
                         if gardenNames.count <= gardenNumber {
                             gardenNames.append(String(self.currentUserGardens[gardenNumber]["gardenName"]))
@@ -169,28 +173,66 @@ class ReadingsViewController: UIViewController {  //, TimelineComponentTarget {
                 }
                 
                 
-                // If we didn't have any returned Gardens, set up the "dummy garden"
+                // If we didn't have any returned Gardens, set up the "dummy garden"  -- FIX THIS
             } else {
                 let dummyGarden = Garden()
                 dummyGarden.gardenName = "Example Garden"
                 dummyGarden.gardenCity = "New Town"
-                dummyGarden.pName = ["AirTemp","Humidity","WaterTemp","Sun","Leaks","pH"]
+                dummyGarden.pName = ["AirTemp","Humidity","WaterTemp1","WaterTemp2", "Sun","Leaks","pH"]
+                dummyGarden.pType = ["AirTemp", "Humidity", "WaterTemp", "WaterTemp", "Sun", "Leaks", "pH"]
                 
+                if self.currentUserGardens.count == 0 {
+                    self.currentUserGardens.append(dummyGarden)
+                } else {
+                    self.currentUserGardens[0] = dummyGarden
+                }
                 
-                self.currentUserGardens[0] = dummyGarden
+                if gardenNames.count == 0 {
+                    gardenNames.append(String(self.currentUserGardens[0]["gardenName"]))
+                } else {
+                    gardenNames[0] = String(self.currentUserGardens[0]["gardenName"])
+                }
                 
+                let dummyReading = Reading()
+                dummyReading.readings = [85.0, 95.0, 60.0, 64.0, 15.0, 1.0, 5.2]
+                let dummyReadings: [Reading] = [dummyReading]
+                self.currentReadings = dummyReading.readings
                 
-                self.currentReadings = [85.0, 95.0, 60.0, 64.0, 15.0, 1.0, 5.0]
-                self.currentReadingValues = [85.0, 95.0, 60.0, 64.0, 62.0, 15.0, 1.0, 5.0]
-                mainReadingValues[0] = self.currentReadingValues
+                self.currentReadingValues = [85.0, 95.0, 60.0, 64.0, 15.0, 1.0, 5.2]
                 
-                currentReadingTypes = ["AirTemp1", "Humidity1", "WaterTemp1", "WaterTemp2", "Sun1", "Leaks1", "pH1"]
+                if readingArrayArray.count == 0 {
+                    readingArrayArray.append(dummyReadings)
+                } else {
+                    readingArrayArray[0][0].readings = self.currentReadingValues
+                }
+                
+                if mainReadingValues.count == 0 {
+                    mainReadingValues.append(self.currentReadingValues)
+                } else {
+                    mainReadingValues[0] = self.currentReadingValues
+                }
+                
+                currentReadingTypes = ["AirTemp", "Humidity", "WaterTemp", "WaterTemp", "Sun", "Leaks", "pH"]
                 customReadingTypes = currentReadingTypes
-                mainReadingTypes[0] = customReadingTypes
                 
-                readingCreatedAt.append("a long time ago...")
-                rowCount[0] = (self.currentReadingValues.count)
+                if mainReadingTypes.count == 0 {
+                    mainReadingTypes.append(customReadingTypes)
+                } else {
+                    mainReadingTypes[0] = customReadingTypes
+                }
                 
+                if readingImageTypes.count == 0 {
+                    readingImageTypes.append(currentReadingTypes)
+                } else {
+                    readingImageTypes[0] = currentReadingTypes
+                }
+                
+                readingCreatedAt.append("the future?")
+                if rowCount.count == 0 {
+                    rowCount.append(self.currentReadingValues.count)
+                } else {
+                    rowCount[0] = (self.currentReadingValues.count)
+                }
                 self.tableView.reloadData()
             }
         }
@@ -249,7 +291,7 @@ extension ReadingsViewController: UITableViewDataSource {
         
         
         
-        if (indexPath.section < mainReadingTypes.count) {
+        if (indexPath.section < mainReadingTypes.count && indexPath.row < mainReadingTypes[indexPath.section].count) {
             cell.reading2Label.text = String(mainReadingTypes[indexPath.section][indexPath.row])
         } else {
             cell.reading2Label.text = "Please refresh..."

@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class ReadingNamesDetailTableViewController: UITableViewController {
+class ReadingNamesDetailTableViewController: UITableViewController, UITextFieldDelegate {
 
     // Container to store the view table selected object
     var currentObject : Garden?
@@ -40,7 +40,7 @@ class ReadingNamesDetailTableViewController: UITableViewController {
     
     
     @IBAction func resetButton(sender: AnyObject) {
-        
+        // Unwrap the current object object
         if let object = currentObject {
             newPName = object.pType
             object["pName"] = newPName
@@ -55,8 +55,9 @@ class ReadingNamesDetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Unwrap the current object object
-
+        let hideKeys = UITapGestureRecognizer(target: self, action: Selector("hideKeyboard"))
+        hideKeys.cancelsTouchesInView = false
+        self.tableView.addGestureRecognizer(hideKeys)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -65,6 +66,11 @@ class ReadingNamesDetailTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
+    func hideKeyboard() {
+        self.view.endEditing(true)
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -97,9 +103,26 @@ class ReadingNamesDetailTableViewController: UITableViewController {
             cell.userDefinedType.text = object["pName"][indexPath.row] as! String
         }
     
+        cell.userDefinedType.delegate = self
         return cell
     }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        //self.view.resignFirstResponder()
+        return false
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+        //self.view.resignFirstResponder()
+        print("Made it to touches began section")
+    }
 
+    override func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        //super.scrollViewWillBeginDragging(self)
+        self.view.endEditing(true)
+    }
 
     /*
     // Override to support conditional editing of the table view.

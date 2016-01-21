@@ -527,7 +527,20 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tjd-9o-nrT" customClass="LineChartView" customModule="Charts">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGM-69-bEA">
+                                        <rect key="frame" x="183" y="261" width="234" height="30"/>
+                                        <state key="normal" title="TheSmartGardenProject.com"/>
+                                        <connections>
+                                            <action selector="linkButtonTapped:" destination="3lD-9R-aFJ" eventType="touchUpInside" id="wVa-PP-2bk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="XGM-69-bEA" firstAttribute="centerX" secondItem="Tjd-9o-nrT" secondAttribute="centerX" id="1B3-ME-6PD"/>
+                                    <constraint firstItem="XGM-69-bEA" firstAttribute="centerY" secondItem="Tjd-9o-nrT" secondAttribute="centerY" constant="30" id="d1R-9t-SnJ"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -541,6 +554,7 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
                         <outlet property="lineChartView" destination="Tjd-9o-nrT" id="RL3-cb-ezZ"/>
+                        <outlet property="linkButton" destination="XGM-69-bEA" id="41t-tz-v2L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="leC-TR-Xea" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -575,8 +589,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="SPJ-Xo-Y9i" kind="relationship" relationship="viewControllers" id="PAJ-XO-iqN"/>
-                        <segue destination="dvW-Q5-qgZ" kind="relationship" relationship="viewControllers" id="lw5-0B-1ZO"/>
-                        <segue destination="Cgz-C1-HLp" kind="relationship" relationship="viewControllers" id="WNV-hF-SoT"/>
                         <segue destination="xPw-iI-JbH" kind="relationship" relationship="viewControllers" id="OaS-0f-wIw"/>
                     </connections>
                 </tabBarController>

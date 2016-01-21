@@ -29,7 +29,8 @@ class ReadingNamesTableViewController: PFQueryTableViewController {
     
     // Define the query that will provide the data for the table view
     override func queryForTable() -> PFQuery {
-        var query = PFQuery(className: "Garden")
+        let query = PFQuery(className: "Garden")
+        query.whereKey("userArray", equalTo: PFUser.currentUser()!)
         query.orderByAscending("gardenName")
         return query
     }
@@ -72,7 +73,7 @@ class ReadingNamesTableViewController: PFQueryTableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         // Get the new view controller using [segue destinationViewController].
-        var detailScene = segue.destinationViewController as! ReadingNamesDetailTableViewController
+        let detailScene = segue.destinationViewController as! ReadingNamesDetailTableViewController
         
         // Pass the selected object to the destination view controller.
         if let indexPath = self.tableView.indexPathForSelectedRow {

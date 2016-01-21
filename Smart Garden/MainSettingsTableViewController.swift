@@ -24,8 +24,10 @@ class MainSettingsTableViewController: UITableViewController, PFLogInViewControl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if ((PFUser.currentUser()?.username)! != nil) {
+        if ((PFUser.currentUser()?.username)! != nil && PFUser.currentUser()?.username?.characters.count < 20) {
             logoutButton.title = "Logout \((PFUser.currentUser()?.username)!)"
+        } else if ((PFUser.currentUser()?.username)! != nil && PFUser.currentUser()?.username?.characters.count > 20) {
+            logoutButton.title = "Logout FB user"
         }
         
         // Uncomment the following line to preserve selection between presentations
@@ -37,8 +39,10 @@ class MainSettingsTableViewController: UITableViewController, PFLogInViewControl
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        if (PFUser.currentUser() != nil) {
+        if (PFUser.currentUser() != nil && PFUser.currentUser()?.username?.characters.count < 20) {
             logoutButton.title = "Logout \((PFUser.currentUser()?.username)!)"
+        } else if ((PFUser.currentUser()?.username)! != nil && PFUser.currentUser()?.username?.characters.count > 20) {
+            logoutButton.title = "Logout FB user"
         } else if (PFUser.currentUser()?.username)! == nil {
             self.loginSetup()
         }
